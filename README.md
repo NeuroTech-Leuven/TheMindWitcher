@@ -12,7 +12,7 @@ The Mindwitcher project focuses on utilizing EEG signals to control actions in *
 The repository is organized into several folders, each containing specific components of the project:
 
 ### 1. Modded Game Code
-Folder: `game`
+Folder: `NTX24_Software`
 - This folder contains the code developed by our software team for modifying *The Witcher 3* game to integrate EEG control functionalities.
 
 ### 2. Data Processing Code
