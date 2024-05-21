@@ -1,3 +1,5 @@
 keyboard
 pyperclip
 pywin32
+pandas
+scikit-learn
