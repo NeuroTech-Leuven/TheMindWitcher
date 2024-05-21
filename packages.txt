@@ -1,0 +1,3 @@
+keyboard
+pyperclip
+pywin32
