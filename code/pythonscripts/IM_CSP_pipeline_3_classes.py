@@ -5,8 +5,14 @@ from scipy.stats import kurtosis, skew
 import pandas as pd
 import sklearn
 
+# Ignore inconsistent version warnings
 import warnings
 warnings.filterwarnings("ignore", category=sklearn.exceptions.InconsistentVersionWarning)
+
+# Get location of this file to find path to models
+from inspect import getsourcefile
+from os.path import dirname
+direcName = dirname(dirname(getsourcefile(lambda:0))) + "/models"
 
 # from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, ConfusionMatrixDisplay
 
@@ -164,7 +170,7 @@ class MyOVBox(OVBox):
                 X_ML = np.array([X_ML], dtype=object)
                 X_ML = np.transpose(X_ML, (1, 2, 0))
 
-                with open('C:/Users/TimL/Documents/Neurotech/TheMindWitcher/code/models/W_CSP.pkl', 'rb') as f:
+                with open(f"{direcName}/W_CSP.pkl", 'rb') as f:
                     W = pickle.load(f)[0]
 
                 X_ML_CSP = apply_mix(W,X_ML)
@@ -172,24 +178,24 @@ class MyOVBox(OVBox):
                 ML_features= extract_features(X_ML_CSP_PSD, X_ML_CSP, [0, -2],freqs)
                 model = 2
                 if model == 3:
-                    with open('C:/Users/TimL/Documents/Neurotech/TheMindWitcher/code/models/Physionet_3_class_best.pkl', 'rb') as f:
+                    with open(f"{direcName}/Physionet_3_class_best.pkl", 'rb') as f:
                         loaded_model = pickle.load(f)
-                else:
-                    with open('C:/Users/TimL/Documents/Neurotech/TheMindWitcher/code/models/Physionet_2_class_best.pkl', 'rb') as f:
+                else:   
+                    with open(f"{direcName}/Physionet_2_class_best.pkl", 'rb') as f:
                         loaded_model = pickle.load(f)
 
                 # probabilities = [left, right, ~nothing]
                 probabilities = loaded_model.predict_proba(ML_features)[0]
                 probLimit = 0.5
-                print(probabilities)
-                if probabilities[0] > 0.2:
-                    # Left action
-                    print("LEFT: Cast sign.")
-                    pressKey(SPELL_KEY)
-                if probabilities[1] > 0.8:
-                    # Right action
-                    print("RIGHT: Call horse")
-                    pressKey(HORSE_KEY)
+                # print(probabilities)
+                # if probabilities[0] > 0.2:
+                #     # Left action
+                #     print("LEFT: Cast sign.")
+                #     pressKey(SPELL_KEY)
+                # if probabilities[1] > 0.8:
+                #     # Right action
+                #     print("RIGHT: Call horse")
+                #     pressKey(HORSE_KEY)
                 
                 
 
