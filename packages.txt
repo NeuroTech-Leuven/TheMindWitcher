@@ -2,4 +2,6 @@ keyboard
 pyperclip
 pywin32
 pandas
-scikit-learn
+scikit-learn==1.2.2
+mne
+pyautogui

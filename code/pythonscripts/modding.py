@@ -56,19 +56,38 @@ def pressKey(key, delay=0.035):
 #
 # More commands can be found at: https://commands.gg/witcher3/weather
 def typeCommand(command, delay=0.035, WTcommand=True):
-    fullCommand = command if not WTcommand else f"changeweather(WT_{command})"
-    # Copy the command to clipboard
-    pc.copy(fullCommand)
 
     # Call debug console
     pressKey(COMMAND_KEY, delay)
 
-    # Use CTRL+V to copy the command into the debug console.
-    kb.press("ctrl")
-    time.sleep(delay)
-    pressKey("v", delay)
-    time.sleep(delay)
-    kb.release("ctrl")
+    if isinstance(command, list):
+        for i,c in enumerate(command):
+            fullCommand = c if not WTcommand else f"changeweather(WT_{c})"
+            # Copy the command to clipboard
+            pc.copy(fullCommand)
+
+            # Use CTRL+V to copy the command into the debug console.
+            kb.press("ctrl")
+            time.sleep(delay)
+            pressKey("v", delay)
+            time.sleep(delay)
+            kb.release("ctrl")
+
+            if i < len(command)-1:
+                kb.press("enter")
+                time.sleep(delay)
+                kb.press("enter")
+    else:
+        fullCommand = command if not WTcommand else f"changeweather(WT_{command})"
+        # Copy the command to clipboard
+        pc.copy(fullCommand)
+        # Use CTRL+V to copy the command into the debug console.
+        kb.press("ctrl")
+        time.sleep(delay)
+        pressKey("v", delay)
+        time.sleep(delay)
+        kb.release("ctrl")
+
 
     # Execute command and close debug console
     pressKey("enter", delay)
