@@ -7,6 +7,8 @@ from joblib import load
 import pandas as pd
 from scipy.signal import windows
 
+from datetime import timedelta, datetime
+
 # Get location of this file to find path to models
 from inspect import getsourcefile
 from os.path import dirname
@@ -73,6 +75,7 @@ class MyOVBox(OVBox):
     def __init__(self):
         super().__init__()
         self.signalHeader = None
+        self.last_prediction_time = datetime.now()
 
     def process(self):
         """
@@ -118,26 +121,30 @@ class MyOVBox(OVBox):
                 except Exception as e:
                     print("Error loading model:", e)
                     return
+                
+                now = datetime.now()
 
-                if hasattr(best_estimator, 'predict_proba'):
-                    # probabilities = [neutral, sad, fear, happy]
-                    probabilities = best_estimator.predict_proba(ML_features)[0]
-                    print(self.signalHeader.endTime)
-                    print("Probabilities:", probabilities)
-                    maxProb = max(probabilities)
-                    # Neutral
-                    if probabilities[0] == maxProb:
-                        typeCommand("Mid_Clouds")
-                    # Sad
-                    elif probabilities[1] == maxProb:
-                        typeCommand("Rain_Storm")
-                    # Fear
-                    elif probabilities[2] == maxProb:
-                        typeCommand(["Blizzard", "Snow"])
-                    # Happy
+                if self.last_prediction_time is None or (now - self.last_prediction_time) > timedelta(seconds=30):
+                    if hasattr(best_estimator, 'predict_proba'):
+                        self.last_prediction_time = now
+                        # probabilities = [neutral, sad, fear, happy]
+                        probabilities = best_estimator.predict_proba(ML_features)[0]
+                        print(self.signalHeader.endTime)
+                        print("Probabilities:", probabilities)
+                        maxProb = max(probabilities)
+                        # Neutral
+                        if probabilities[0] == maxProb:
+                            typeCommand("Mid_Clouds")
+                        # Sad
+                        elif probabilities[1] == maxProb:
+                            typeCommand("Rain_Storm")
+                        # Fear
+                        elif probabilities[2] == maxProb:
+                            typeCommand(["Blizzard", "Snow"])
+                        # Happy
+                        else:
+                            typeCommand("stoprain", WTcommand=False)
                     else:
-                        typeCommand("stoprain", WTcommand=False)
-                else:
-                    print("Best estimator does not have 'predict_proba' method.")
+                        print("Best estimator does not have 'predict_proba' method.")
 
 box = MyOVBox()
