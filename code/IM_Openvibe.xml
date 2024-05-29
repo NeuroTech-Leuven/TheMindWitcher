@@ -234,7 +234,7 @@
 					<TypeIdentifier>(0xb0d0db45, 0x49cbc34a)</TypeIdentifier>
 					<Name>Script</Name>
 					<DefaultValue></DefaultValue>
-					<Value>${Player_ScenarioDirectory}/pythonscripts/TheWitcher.py</Value>
+					<Value>${Player_ScenarioDirectory}/pythonscripts/modding.py</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>
