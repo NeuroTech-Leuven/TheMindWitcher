@@ -79,7 +79,8 @@ def load_and_process(file_path):
     W = csp(X_ML[:,:,mask_0], X_ML[:,:,mask_1])
 
     print(W.shape)
-    with open(f"{sourceDic}/models/W_CSP.pkl", 'wb') as f:
+    Wpath = dirname(sourceDic)
+    with open(f"{Wpath}/models/W_CSP.pkl", 'wb') as f:
         pickle.dump([W], f)
 
 class MyOVBox(OVBox):
@@ -93,8 +94,6 @@ class MyOVBox(OVBox):
    def process(self):
         # Get location of this file to find path to models
         file_path = f"{sourceDic}/signals/IM_Acquisition_CSP.edf"
-        print("!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        print(file_path)
         load_and_process(file_path)
         stimSet = OVStimulationSet(self.getCurrentTime(), self.getCurrentTime()+1./self.getClock())
         stimSet.append(OVStimulation(32770, self.getCurrentTime, 0.5))             

@@ -63,20 +63,20 @@ def automate_gui_interaction():
 
 
 # Get location of this file to find path to .xml files
-ovDic = dirname(dirname(getsourcefile(lambda:0)))
+ovDic = dirname(getsourcefile(lambda:0))
+print(ovDic)
 
 # Get the actual.xml files
 openvibe_path = "C:/Program Files/openvibe-3.6.0-64bit/bin/openvibe-designer.exe"
 xml_acquisition_path = ovDic+"/IM_CSP_Acquisition.xml"
-xml_csp_trainer_path = ovDic+"/IM_Train_CSP.xml"
-xml_online_path = ovDic+"/IM_Openvibe_Game.xml"
+xml_csp_trainer_path = ovDic+"/IM_CSP_Train.xml"
 
 # Create threads for each function
 thread1 = threading.Thread(target=start_openvibe_acquisition_server)
 thread2 = threading.Thread(target=automate_gui_interaction)
-thread3 = threading.Thread(target=run_openvibe_xml,args=[[openvibe_path, "--no-gui", "--play"], [xml_acquisition_path,xml_csp_trainer_path,xml_online_path]])
+thread3 = threading.Thread(target=run_openvibe_xml,args=[[openvibe_path, "--no-gui", "--play"], [xml_acquisition_path,xml_csp_trainer_path]])
 
-# Start threads
+# # Start threads
 thread1.start()
 time.sleep(0.5)
 thread2.start()
