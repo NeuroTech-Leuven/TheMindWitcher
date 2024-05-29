@@ -6,8 +6,15 @@ import numpy as np
 from datetime import datetime
 import torch
 
+# Get location of this file to find path to models
+from inspect import getsourcefile
+from os.path import dirname
+currentDic = dirname(getsourcefile(lambda:0))
+modelsDic = dirname(currentDic) + "/models"
+
 # Path to the debug log file
-debug_log_file = 'C:/Users/sofia/Desktop/YEAR4/Neurotech/Prediction Results/debug_log.txt'
+debug_log_file = f"{currentDic}/output/IM_DL_debug_log.txt"
+open(debug_log_file, 'w').close()
 
 def log_debug_message(message):
     with open(debug_log_file, 'a') as f:
@@ -23,8 +30,8 @@ class MyOVBox(OVBox):
         self.outputHeader = None
         log_debug_message("Initializing MyOVBox...")
         self.processor = EEGProcessor(
-            model_path='C:/Users/sofia/Desktop/YEAR4/Neurotech/NTX24-data-processing/ComfyNet_best_8_channels.ckpt',
-            output_file='C:/Users/sofia/Desktop/YEAR4/Neurotech/Prediction Results/output_predictions.txt'
+            model_path=f"{modelsDic}/ComfyNet_best_8_channels.ckpt",
+            output_file=f"{currentDic}/output/IM_DL_predictions.txt"
         )
         log_debug_message("MyOVBox initialized.")
 
@@ -40,7 +47,6 @@ class MyOVBox(OVBox):
                     self.signalHeader.dimensionSizes,
                     self.signalHeader.dimensionLabels,
                     self.signalHeader.samplingRate)
-                self.output[0].append(outputHeader)
             elif type(self.input[0][chunkIndex]) == OVSignalBuffer:
                 log_debug_message("Received OVSignalBuffer")
                 chunk = self.input[0][chunkIndex] 
@@ -130,7 +136,15 @@ class EEGProcessor:
             log_debug_message(f"Model raw output: {output}")
             # Extract prediction
             prediction = output.argmax(dim=1).item()
-            # LABELS: 0 1 2
+            # 0: neutral, 1: left, 2: right
+            if prediction == 1:
+                # Left action
+                print("LEFT: Cast sign.")
+                pressKey(SPELL_KEY)
+            elif prediction == 2:
+                # Right action
+                print("RIGHT: Call horse")
+                pressKey(HORSE_KEY)
             log_debug_message(f"Prediction: {prediction}")
             return prediction
         except Exception as e:

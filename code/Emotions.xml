@@ -448,7 +448,7 @@
 					<TypeIdentifier>(0xb0d0db45, 0x49cbc34a)</TypeIdentifier>
 					<Name>Script</Name>
 					<DefaultValue></DefaultValue>
-					<Value>${Player_ScenarioDirectory}/pythonscripts/EM_model.py</Value>
+					<Value>${Player_ScenarioDirectory}/pythonscripts/EM_pipeline.py</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>
