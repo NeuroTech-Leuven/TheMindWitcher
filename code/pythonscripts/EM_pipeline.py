@@ -6,6 +6,7 @@ import numpy as np
 from joblib import load
 import pandas as pd
 from scipy.signal import windows
+import sklearn
 
 from datetime import timedelta, datetime
 
@@ -13,6 +14,10 @@ from datetime import timedelta, datetime
 from inspect import getsourcefile
 from os.path import dirname
 modelsDic = dirname(dirname(getsourcefile(lambda:0))) + "/models"
+
+# Ignore inconsistent version warnings
+# import warnings
+# warnings.filterwarnings("ignore", category=sklearn.exceptions.InconsistentVersionWarning)
 
 def psd(signal, fs, flip=False):
     """

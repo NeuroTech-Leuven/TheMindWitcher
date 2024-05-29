@@ -6,8 +6,8 @@ import pandas as pd
 import sklearn
 
 # Ignore inconsistent version warnings
-import warnings
-warnings.filterwarnings("ignore", category=sklearn.exceptions.InconsistentVersionWarning)
+# import warnings
+# warnings.filterwarnings("ignore", category=sklearn.exceptions.InconsistentVersionWarning)
 
 # Get location of this file to find path to models
 from inspect import getsourcefile

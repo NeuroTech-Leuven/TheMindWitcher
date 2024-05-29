@@ -15,6 +15,26 @@ except AttributeError:
     pass
 
 
+def start_openvibe_acquisition_server():
+    # Path to the OpenViBE Acquisition Server executable
+    ov_acquisition_server_path = "C:/Program Files/openvibe-3.6.0-64bit/bin/openvibe-acquisition-server.exe"
+
+    # Start the Acquisition Server
+    subprocess.run([ov_acquisition_server_path])
+
+
+def run_openvibe_xml(cmd, xml_path):
+        try:
+            # Run OpenViBE with the specified XML file
+            fullCommand = f"{cmd} --open {xml_path}"
+            # f"{cmd} --play {xml_path}"
+            print(fullCommand)
+            subprocess.run(fullCommand, shell=True)
+            print("OpenViBE process completed successfully.")
+        except subprocess.CalledProcessError as e:
+            print("Error: OpenViBE process failed with exit code", e.returncode)
+
+
 def get_connect_play_position():  
     try:
         # Get the window by title
@@ -34,25 +54,6 @@ def get_connect_play_position():
     
     return x, y_c, y_s
 
-
-def start_openvibe_acquisition_server():
-    # Path to the OpenViBE Acquisition Server executable
-    ov_acquisition_server_path = "C:/Program Files/openvibe-3.6.0-64bit/bin/openvibe-acquisition-server.exe"
-
-    # Start the Acquisition Server
-    subprocess.run([ov_acquisition_server_path])
-
-
-def run_openvibe_xml(cmd, xml_paths):
-    for xml_path in xml_paths:
-        try:
-            # Run OpenViBE with the specified XML file
-            subprocess.run(cmd+[xml_path])
-            print("OpenViBE process completed successfully.")
-        except subprocess.CalledProcessError as e:
-            print("Error: OpenViBE process failed with exit code", e.returncode)
-
-
 def automate_gui_interaction():
     # Then press "Connect" and "Play"
     x, y_c, y_s = get_connect_play_position()
@@ -63,21 +64,22 @@ def automate_gui_interaction():
 
 
 # Get location of this file to find path to .xml files
-ovDic = dirname(getsourcefile(lambda:0))
+currentDic = dirname(getsourcefile(lambda:0))
 
 # Get the actual.xml files
 openvibe_path = "C:/Program Files/openvibe-3.6.0-64bit/bin/openvibe-designer.exe"
-xml_acquisition_path = ovDic+"/IM_CSP_Acquisition.xml"
-xml_csp_trainer_path = ovDic+"/IM_CSP_Train.xml"
+xml_file = f"{currentDic}/code/main.xml"
 
 # Create threads for each function
 thread1 = threading.Thread(target=start_openvibe_acquisition_server)
 thread2 = threading.Thread(target=automate_gui_interaction)
-thread3 = threading.Thread(target=run_openvibe_xml,args=[[openvibe_path, "--no-gui", "--play"], [xml_acquisition_path,xml_csp_trainer_path]])
+thread3 = threading.Thread(target=run_openvibe_xml,args=[openvibe_path, xml_file])
 
-# # Start threads
+# Start threads
 thread1.start()
 time.sleep(0.5)
 thread2.start()
 time.sleep(0.5)
 thread3.start()
+
+# run_openvibe_xml(openvibe_path, xml_file)
