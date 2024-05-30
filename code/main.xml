@@ -617,7 +617,7 @@
 					<TypeIdentifier>(0xb0d0db45, 0x49cbc34a)</TypeIdentifier>
 					<Name>Script</Name>
 					<DefaultValue></DefaultValue>
-					<Value>${Player_ScenarioDirectory}pythonscripts/EM_pipeline.py</Value>
+					<Value>${Player_ScenarioDirectory}/pythonscripts/EM_pipeline.py</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>
@@ -692,7 +692,7 @@
 					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
 					<Name>Epoch intervals (in sec)</Name>
 					<DefaultValue>0.5</DefaultValue>
-					<Value>2</Value>
+					<Value>30</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>

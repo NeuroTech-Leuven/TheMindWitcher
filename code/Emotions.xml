@@ -146,7 +146,7 @@
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>736</Value>
+					<Value>720</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
@@ -189,7 +189,7 @@
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>672</Value>
+					<Value>720</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
@@ -401,7 +401,7 @@
 			<Attributes>
 				<Attribute>
 					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
-					<Value>448</Value>
+					<Value>464</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
@@ -459,11 +459,11 @@
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
-					<Value>448</Value>
+					<Value>464</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>624</Value>
+					<Value>672</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x30a4e5c9, 0x83502953)</Identifier>
@@ -523,18 +523,18 @@
 					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
 					<Name>Epoch intervals (in sec)</Name>
 					<DefaultValue>0.5</DefaultValue>
-					<Value>2</Value>
+					<Value>30</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>
 			<Attributes>
 				<Attribute>
 					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
-					<Value>368</Value>
+					<Value>384</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>656</Value>
+					<Value>720</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
@@ -640,7 +640,7 @@
 		</Box>
 		<Box>
 			<Identifier>(0x00007f3f, 0x0000447c)</Identifier>
-			<Name>Python 3 scripting</Name>
+			<Name>Modding</Name>
 			<AlgorithmClassIdentifier>(0x5dc4f669, 0xd3fd4d63)</AlgorithmClassIdentifier>
 			<Settings>
 				<Setting>

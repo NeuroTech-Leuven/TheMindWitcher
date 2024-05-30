@@ -6,9 +6,6 @@ import numpy as np
 from joblib import load
 import pandas as pd
 from scipy.signal import windows
-import sklearn
-
-from datetime import timedelta, datetime
 
 # Get location of this file to find path to models
 from inspect import getsourcefile
@@ -19,7 +16,7 @@ modelsDic = dirname(dirname(getsourcefile(lambda:0))) + "/models"
 # import warnings
 # warnings.filterwarnings("ignore", category=sklearn.exceptions.InconsistentVersionWarning)
 
-def psd(signal, fs, flip=False):
+def psd_EM(signal, fs, flip=False):
     """
     Calculate the Power Spectral Density (PSD) of a given EEG signal.
     
@@ -40,7 +37,7 @@ def psd(signal, fs, flip=False):
     freq = np.fft.fftfreq(signal.shape[0], d=1.0 / fs)[:n // 2] if not flip else np.fft.fftfreq(signal.shape[0], d=1.0 / fs)[-n // 2 - (n + 1) % 2::-1]
     return amplitude, freq
 
-def extract_features(eeg_data, sfreq, num_channels=8):
+def extract_features_EM(eeg_data, sfreq, num_channels=8):
     """
     Extracts features from EEG data for each frequency band (Delta, Theta, Alpha, Sigma, Beta).
     
@@ -58,7 +55,7 @@ def extract_features(eeg_data, sfreq, num_channels=8):
     df = pd.DataFrame(columns=column_titles)
 
     for channel in range(num_channels):
-        PSD, freq = psd(eeg_data[channel, :], sfreq)
+        PSD, freq = psd_EM(eeg_data[channel, :], sfreq)
 
         for band in bands:
             lower_bound, upper_bound = {'Delta': (0.5, 4.5), 'Theta': (4.5, 8.5), 'Alpha': (8.5, 11.5), 'Sigma': (11.5, 15.5), 'Beta': (15.5, 45)}[band]
@@ -72,7 +69,7 @@ def extract_features(eeg_data, sfreq, num_channels=8):
 
     return df
 
-class MyOVBox(OVBox):
+class EMBox(OVBox):
     """
     Custom OVBox implementation for processing EEG signals.
     Inherits from OVBox to utilize OpenViBE framework capabilities.
@@ -80,7 +77,6 @@ class MyOVBox(OVBox):
     def __init__(self):
         super().__init__()
         self.signalHeader = None
-        self.last_prediction_time = datetime.now()
 
     def process(self):
         """
@@ -114,42 +110,34 @@ class MyOVBox(OVBox):
                 X_ML = np.transpose(X_ML, (1, 2, 0))
 
                 # print("Extracting features...")
-                ML_features = extract_features(X_ML, 256)
-                # print("Features extracted:", ML_features)
-
-                print("Loading model...")
+                ML_features = extract_features_EM(X_ML, 256)
 
                 try:
                     grid_search_cv = load(f"{modelsDic}/EM_model.pkl")
                     best_estimator = grid_search_cv.best_estimator_
-                    print("Model loaded. Type:", type(best_estimator))
+                    # print("Model loaded. Type:", type(best_estimator))
                 except Exception as e:
                     print("Error loading model:", e)
                     return
                 
-                now = datetime.now()
-
-                if self.last_prediction_time is None or (now - self.last_prediction_time) > timedelta(seconds=30):
-                    if hasattr(best_estimator, 'predict_proba'):
-                        self.last_prediction_time = now
-                        # probabilities = [neutral, sad, fear, happy]
-                        probabilities = best_estimator.predict_proba(ML_features)[0]
-                        print(self.signalHeader.endTime)
-                        print("Probabilities:", probabilities)
-                        maxProb = max(probabilities)
-                        # Neutral
-                        if probabilities[0] == maxProb:
-                            typeCommand("Mid_Clouds")
-                        # Sad
-                        elif probabilities[1] == maxProb:
-                            typeCommand("Rain_Storm")
-                        # Fear
-                        elif probabilities[2] == maxProb:
-                            typeCommand(["Blizzard", "Snow"])
-                        # Happy
-                        else:
-                            typeCommand("stoprain", WTcommand=False)
+                if hasattr(best_estimator, 'predict_proba'):
+                    # probabilities = [neutral, sad, fear, happy]
+                    probabilities = best_estimator.predict_proba(ML_features)[0]
+                    print("Probabilities:", probabilities)
+                    maxProb = max(probabilities)
+                    # Neutral
+                    if probabilities[0] == maxProb:
+                        typeCommand("Mid_Clouds")
+                    # Sad
+                    elif probabilities[1] == maxProb:
+                        typeCommand("Rain_Storm")
+                    # Fear
+                    elif probabilities[2] == maxProb:
+                        typeCommand(["Blizzard", "Snow"])
+                    # Happy
                     else:
-                        print("Best estimator does not have 'predict_proba' method.")
+                        typeCommand("stoprain", WTcommand=False)
+                else:
+                    print("Best estimator does not have 'predict_proba' method.")
 
-box = MyOVBox()
+box = EMBox()

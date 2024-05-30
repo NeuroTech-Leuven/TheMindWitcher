@@ -26,10 +26,8 @@ def start_openvibe_acquisition_server():
 def run_openvibe_xml(cmd, xml_path):
         try:
             # Run OpenViBE with the specified XML file
-            fullCommand = f"{cmd} --open {xml_path}"
-            # f"{cmd} --play {xml_path}"
-            print(fullCommand)
-            subprocess.run(fullCommand, shell=True)
+            fullCommand = f"{cmd} --play {xml_path}"
+            subprocess.run(fullCommand)
             print("OpenViBE process completed successfully.")
         except subprocess.CalledProcessError as e:
             print("Error: OpenViBE process failed with exit code", e.returncode)
@@ -81,5 +79,3 @@ time.sleep(0.5)
 thread2.start()
 time.sleep(0.5)
 thread3.start()
-
-# run_openvibe_xml(openvibe_path, xml_file)

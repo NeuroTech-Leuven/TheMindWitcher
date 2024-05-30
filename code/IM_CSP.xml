@@ -297,7 +297,7 @@
 		</Box>
 		<Box>
 			<Identifier>(0x00002644, 0x00005de5)</Identifier>
-			<Name>Python 3 scripting</Name>
+			<Name>Modding</Name>
 			<AlgorithmClassIdentifier>(0x5dc4f669, 0xd3fd4d63)</AlgorithmClassIdentifier>
 			<Settings>
 				<Setting>
