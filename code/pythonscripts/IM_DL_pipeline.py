@@ -3,7 +3,7 @@ import math
 from torch import nn, Tensor
 from einops.layers.torch import Rearrange
 import numpy as np
-from datetime import datetime
+from datetime import datetime, timedelta
 import torch
 
 # Get location of this file to find path to models
@@ -82,6 +82,7 @@ class EEGProcessor:
         self.output_file = output_file
         self.initialize_output_file()
         log_debug_message(f"EEGProcessor initialized with model_path: {model_path}")
+        self.lastPredictTime = datetime.now()
 
     def load_model(self, model_path):
         try:
@@ -119,15 +120,18 @@ class EEGProcessor:
             log_debug_message(f"Error appending to output file: {e}")
 
     def process_chunk(self, chunk):
-        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S:%f')[:-4]
-        print(f"Process chunk at time {timestamp}")
-        log_debug_message(f"Processing chunk with length: {len(chunk)}")
-        data = np.array( chunk, dtype = np.float64)
-        log_debug_message(data)
-        log_debug_message(f"Data prepared for prediction: {data.shape}")
-        prediction = self.predict(data)
-        log_debug_message(f"Prediction made: {prediction}")
-        self.append_to_output_file(prediction)
+        # timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S:%f')[:-4]
+        # print(f"Process chunk at time {timestamp}")
+        now = datetime.now()
+        if (now-self.lastPredictTime) > timedelta(milliseconds=900):
+            self.lastPredictTime = now
+            log_debug_message(f"Processing chunk with length: {len(chunk)}")
+            data = np.array( chunk, dtype = np.float64)
+            log_debug_message(data)
+            log_debug_message(f"Data prepared for prediction: {data.shape}")
+            prediction = self.predict(data)
+            log_debug_message(f"Prediction made: {prediction}")
+            self.append_to_output_file(prediction)
 
     def predict(self, data):
         log_debug_message('Entering Predict')
@@ -142,6 +146,7 @@ class EEGProcessor:
             log_debug_message(f"Model raw output: {output}")
             # Extract prediction
             prediction = output.argmax(dim=1).item()
+
             # 0: neutral, 1: left, 2: right
             if prediction == 1:
                 # Left action
@@ -151,9 +156,9 @@ class EEGProcessor:
                 # Right action
                 print("RIGHT: Call horse")
                 pressKey(HORSE_KEY)
-            # else:
-            #     print(f"No action {timestamp}")
-            log_debug_message(f"Prediction: {prediction}")
+                # else:
+                #     print(f"No action {timestamp}")
+                log_debug_message(f"Prediction: {prediction}")
             return prediction
         except Exception as e:
             log_debug_message(f"An error occurred: {str(e)}")

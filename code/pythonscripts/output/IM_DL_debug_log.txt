@@ -1,229 +1,290 @@
-2024-05-29 18:03:36 - Initializing MyOVBox...
-2024-05-29 18:03:36 - Initializing EEGProcessor...
-2024-05-29 18:03:36 - Model loaded successfully from C:/Users/TimL/Documents/Neurotech/TheMindWitcher/code/models/ComfyNet_best_8_channels.ckpt
-2024-05-29 18:03:36 - Output file initialized.
-2024-05-29 18:03:36 - EEGProcessor initialized with model_path: C:/Users/TimL/Documents/Neurotech/TheMindWitcher/code/models/ComfyNet_best_8_channels.ckpt
-2024-05-29 18:03:36 - MyOVBox initialized.
-2024-05-29 18:03:37 - Processing chunk index: 0
-2024-05-29 18:03:37 - Received OVSignalHeader
-2024-05-29 18:03:39 - Processing chunk index: 0
-2024-05-29 18:03:39 - Received OVSignalBuffer
-2024-05-29 18:03:39 - Processing chunk with length: 1
-2024-05-29 18:03:39 - [[[ 5.42244860e-12 -5.36030506e-02 -3.10612316e-01 ... -1.35505173e+00
-   -1.20662334e+00 -1.20662334e+00]
-  [-1.00521730e-11  8.50134798e-02  4.92336450e-01 ... -5.49812520e-01
-   -1.07711477e+00 -1.07711477e+00]
-  [-2.38059572e-14  1.87262676e-01  2.80798622e-01 ...  2.88786645e+00
-    2.49811354e+00  2.49811354e+00]
+2024-05-30 11:07:27 - Initializing MyOVBox...
+2024-05-30 11:07:27 - Initializing EEGProcessor...
+2024-05-30 11:07:27 - Model loaded successfully from c:/Users/TimL/Documents/Neurotech/TheMindWitcher/code/models/ComfyNet_best_8_channels.ckpt
+2024-05-30 11:07:27 - Output file initialized.
+2024-05-30 11:07:27 - EEGProcessor initialized with model_path: c:/Users/TimL/Documents/Neurotech/TheMindWitcher/code/models/ComfyNet_best_8_channels.ckpt
+2024-05-30 11:07:27 - MyOVBox initialized.
+2024-05-30 11:07:27 - Processing chunk index: 0
+2024-05-30 11:07:27 - Received OVSignalHeader
+2024-05-30 11:07:29 - Processing chunk index: 0
+2024-05-30 11:07:29 - Received OVSignalBuffer
+2024-05-30 11:07:29 - Processing chunk with length: 1
+2024-05-30 11:07:29 - [[[ 2.89075847e-12  1.55978199e-01  5.32272779e-01 ...  1.38970593e+00
+    1.66493165e+00  1.66493165e+00]
+  [ 5.31659577e-12 -1.46911263e-02 -3.29714129e-03 ...  9.37079080e-01
+    4.94265346e-01  4.94265346e-01]
+  [ 3.38280931e-12 -2.79804061e-01 -1.01720589e+00 ... -1.27579865e+00
+   -1.00613129e+00 -1.00613129e+00]
   ...
-  [-6.11820872e-12  7.09778960e-01  1.34884614e+00 ... -3.89735242e-01
-    1.61715829e-01  1.61715829e-01]
-  [ 1.59135011e-11 -5.99235564e-01 -1.78164034e+00 ...  1.72032948e+00
-    1.52494585e+00  1.52494585e+00]
-  [ 1.52653723e-12  1.14664171e-01  8.92372658e-01 ... -1.45775292e+00
-   -1.32157469e+00 -1.32157469e+00]]]
-2024-05-29 18:03:39 - Data prepared for prediction: (1, 10, 321)
-2024-05-29 18:03:39 - Entering Predict
-2024-05-29 18:03:39 - An error occurred: Shape mismatch, 3 != 1
-2024-05-29 18:03:39 - Prediction made: None
-2024-05-29 18:03:39 - No prediction to append to the output file.
-2024-05-29 18:03:40 - Processing chunk index: 0
-2024-05-29 18:03:40 - Received OVSignalBuffer
-2024-05-29 18:03:40 - Processing chunk with length: 1
-2024-05-29 18:03:40 - [[[ 5.42244860e-12 -5.36030506e-02 -3.10612316e-01 ... -1.35505173e+00
-   -1.20662334e+00 -1.20662334e+00]
-  [-1.00521730e-11  8.50134798e-02  4.92336450e-01 ... -5.49812520e-01
-   -1.07711477e+00 -1.07711477e+00]
-  [-2.38059572e-14  1.87262676e-01  2.80798622e-01 ...  2.88786645e+00
-    2.49811354e+00  2.49811354e+00]
+  [-1.10507561e-11  6.90528610e-01  1.43276397e+00 ...  1.18590434e+00
+    1.85719565e-01  1.85719565e-01]
+  [-5.30907124e-12  6.24792629e-01  1.73135713e+00 ... -3.66725520e-01
+   -1.95031761e-01 -1.95031761e-01]
+  [ 3.84332982e-12 -1.17874808e-02  4.92518905e-01 ... -1.84333607e-01
+   -8.65221214e-01 -8.65221214e-01]]]
+2024-05-30 11:07:29 - Data prepared for prediction: (1, 8, 321)
+2024-05-30 11:07:29 - Entering Predict
+2024-05-30 11:07:29 - Model raw output: tensor([[ 7.8324, -5.2281, -8.3787]], grad_fn=<AddmmBackward0>)
+2024-05-30 11:07:29 - Prediction made: 0
+2024-05-30 11:07:29 - Prediction 0 appended to output file at 2024-05-30 11:07:29:67.
+2024-05-30 11:07:30 - Processing chunk index: 0
+2024-05-30 11:07:30 - Received OVSignalBuffer
+2024-05-30 11:07:30 - Processing chunk with length: 1
+2024-05-30 11:07:30 - [[[ 2.89075847e-12  1.55978199e-01  5.32272779e-01 ...  1.38970593e+00
+    1.66493165e+00  1.66493165e+00]
+  [ 5.31659577e-12 -1.46911263e-02 -3.29714129e-03 ...  9.37079080e-01
+    4.94265346e-01  4.94265346e-01]
+  [ 3.38280931e-12 -2.79804061e-01 -1.01720589e+00 ... -1.27579865e+00
+   -1.00613129e+00 -1.00613129e+00]
   ...
-  [-6.11820872e-12  7.09778960e-01  1.34884614e+00 ... -3.89735242e-01
-    1.61715829e-01  1.61715829e-01]
-  [ 1.59135011e-11 -5.99235564e-01 -1.78164034e+00 ...  1.72032948e+00
-    1.52494585e+00  1.52494585e+00]
-  [ 1.52653723e-12  1.14664171e-01  8.92372658e-01 ... -1.45775292e+00
-   -1.32157469e+00 -1.32157469e+00]]]
-2024-05-29 18:03:40 - Data prepared for prediction: (1, 10, 321)
-2024-05-29 18:03:40 - Entering Predict
-2024-05-29 18:03:40 - An error occurred: Shape mismatch, 3 != 1
-2024-05-29 18:03:40 - Prediction made: None
-2024-05-29 18:03:40 - No prediction to append to the output file.
-2024-05-29 18:03:40 - Processing chunk index: 0
-2024-05-29 18:03:40 - Received OVSignalBuffer
-2024-05-29 18:03:40 - Processing chunk index: 1
-2024-05-29 18:03:40 - Received OVSignalBuffer
-2024-05-29 18:03:40 - Processing chunk with length: 1
-2024-05-29 18:03:40 - [[[ 5.42244860e-12 -5.36030506e-02 -3.10612316e-01 ... -1.35505173e+00
-   -1.20662334e+00 -1.20662334e+00]
-  [-1.00521730e-11  8.50134798e-02  4.92336450e-01 ... -5.49812520e-01
-   -1.07711477e+00 -1.07711477e+00]
-  [-2.38059572e-14  1.87262676e-01  2.80798622e-01 ...  2.88786645e+00
-    2.49811354e+00  2.49811354e+00]
+  [-1.10507561e-11  6.90528610e-01  1.43276397e+00 ...  1.18590434e+00
+    1.85719565e-01  1.85719565e-01]
+  [-5.30907124e-12  6.24792629e-01  1.73135713e+00 ... -3.66725520e-01
+   -1.95031761e-01 -1.95031761e-01]
+  [ 3.84332982e-12 -1.17874808e-02  4.92518905e-01 ... -1.84333607e-01
+   -8.65221214e-01 -8.65221214e-01]]]
+2024-05-30 11:07:30 - Data prepared for prediction: (1, 8, 321)
+2024-05-30 11:07:30 - Entering Predict
+2024-05-30 11:07:30 - Model raw output: tensor([[ 7.8324, -5.2281, -8.3787]], grad_fn=<AddmmBackward0>)
+2024-05-30 11:07:30 - Prediction made: 0
+2024-05-30 11:07:30 - Prediction 0 appended to output file at 2024-05-30 11:07:30:66.
+2024-05-30 11:07:30 - Processing chunk index: 0
+2024-05-30 11:07:30 - Received OVSignalBuffer
+2024-05-30 11:07:30 - Processing chunk index: 1
+2024-05-30 11:07:30 - Received OVSignalBuffer
+2024-05-30 11:07:31 - Processing chunk index: 0
+2024-05-30 11:07:31 - Received OVSignalBuffer
+2024-05-30 11:07:31 - Processing chunk index: 1
+2024-05-30 11:07:31 - Received OVSignalBuffer
+2024-05-30 11:07:31 - Processing chunk with length: 1
+2024-05-30 11:07:31 - [[[ 2.89075847e-12  1.55978199e-01  5.32272779e-01 ...  1.38970593e+00
+    1.66493165e+00  1.66493165e+00]
+  [ 5.31659577e-12 -1.46911263e-02 -3.29714129e-03 ...  9.37079080e-01
+    4.94265346e-01  4.94265346e-01]
+  [ 3.38280931e-12 -2.79804061e-01 -1.01720589e+00 ... -1.27579865e+00
+   -1.00613129e+00 -1.00613129e+00]
   ...
-  [-6.11820872e-12  7.09778960e-01  1.34884614e+00 ... -3.89735242e-01
-    1.61715829e-01  1.61715829e-01]
-  [ 1.59135011e-11 -5.99235564e-01 -1.78164034e+00 ...  1.72032948e+00
-    1.52494585e+00  1.52494585e+00]
-  [ 1.52653723e-12  1.14664171e-01  8.92372658e-01 ... -1.45775292e+00
-   -1.32157469e+00 -1.32157469e+00]]]
-2024-05-29 18:03:40 - Data prepared for prediction: (1, 10, 321)
-2024-05-29 18:03:40 - Entering Predict
-2024-05-29 18:03:40 - An error occurred: Shape mismatch, 3 != 1
-2024-05-29 18:03:40 - Prediction made: None
-2024-05-29 18:03:40 - No prediction to append to the output file.
-2024-05-29 18:03:41 - Processing chunk index: 0
-2024-05-29 18:03:41 - Received OVSignalBuffer
-2024-05-29 18:03:41 - Processing chunk index: 1
-2024-05-29 18:03:41 - Received OVSignalBuffer
-2024-05-29 18:03:41 - Processing chunk with length: 1
-2024-05-29 18:03:41 - [[[ 5.42244860e-12 -5.36030506e-02 -3.10612316e-01 ... -1.35505173e+00
-   -1.20662334e+00 -1.20662334e+00]
-  [-1.00521730e-11  8.50134798e-02  4.92336450e-01 ... -5.49812520e-01
-   -1.07711477e+00 -1.07711477e+00]
-  [-2.38059572e-14  1.87262676e-01  2.80798622e-01 ...  2.88786645e+00
-    2.49811354e+00  2.49811354e+00]
+  [-1.10507561e-11  6.90528610e-01  1.43276397e+00 ...  1.18590434e+00
+    1.85719565e-01  1.85719565e-01]
+  [-5.30907124e-12  6.24792629e-01  1.73135713e+00 ... -3.66725520e-01
+   -1.95031761e-01 -1.95031761e-01]
+  [ 3.84332982e-12 -1.17874808e-02  4.92518905e-01 ... -1.84333607e-01
+   -8.65221214e-01 -8.65221214e-01]]]
+2024-05-30 11:07:31 - Data prepared for prediction: (1, 8, 321)
+2024-05-30 11:07:31 - Entering Predict
+2024-05-30 11:07:31 - Model raw output: tensor([[ 7.8324, -5.2281, -8.3787]], grad_fn=<AddmmBackward0>)
+2024-05-30 11:07:31 - Prediction made: 0
+2024-05-30 11:07:31 - Prediction 0 appended to output file at 2024-05-30 11:07:31:66.
+2024-05-30 11:07:31 - Processing chunk index: 0
+2024-05-30 11:07:31 - Received OVSignalBuffer
+2024-05-30 11:07:31 - Processing chunk index: 1
+2024-05-30 11:07:31 - Received OVSignalBuffer
+2024-05-30 11:07:31 - Processing chunk index: 2
+2024-05-30 11:07:31 - Received OVSignalBuffer
+2024-05-30 11:07:32 - Processing chunk index: 0
+2024-05-30 11:07:32 - Received OVSignalBuffer
+2024-05-30 11:07:32 - Processing chunk index: 1
+2024-05-30 11:07:32 - Received OVSignalBuffer
+2024-05-30 11:07:32 - Processing chunk index: 2
+2024-05-30 11:07:32 - Received OVSignalBuffer
+2024-05-30 11:07:32 - Processing chunk with length: 1
+2024-05-30 11:07:32 - [[[ 2.89075847e-12  1.55978199e-01  5.32272779e-01 ...  1.38970593e+00
+    1.66493165e+00  1.66493165e+00]
+  [ 5.31659577e-12 -1.46911263e-02 -3.29714129e-03 ...  9.37079080e-01
+    4.94265346e-01  4.94265346e-01]
+  [ 3.38280931e-12 -2.79804061e-01 -1.01720589e+00 ... -1.27579865e+00
+   -1.00613129e+00 -1.00613129e+00]
   ...
-  [-6.11820872e-12  7.09778960e-01  1.34884614e+00 ... -3.89735242e-01
-    1.61715829e-01  1.61715829e-01]
-  [ 1.59135011e-11 -5.99235564e-01 -1.78164034e+00 ...  1.72032948e+00
-    1.52494585e+00  1.52494585e+00]
-  [ 1.52653723e-12  1.14664171e-01  8.92372658e-01 ... -1.45775292e+00
-   -1.32157469e+00 -1.32157469e+00]]]
-2024-05-29 18:03:41 - Data prepared for prediction: (1, 10, 321)
-2024-05-29 18:03:41 - Entering Predict
-2024-05-29 18:03:41 - An error occurred: Shape mismatch, 3 != 1
-2024-05-29 18:03:41 - Prediction made: None
-2024-05-29 18:03:41 - No prediction to append to the output file.
-2024-05-29 18:03:41 - Processing chunk index: 0
-2024-05-29 18:03:41 - Received OVSignalBuffer
-2024-05-29 18:03:41 - Processing chunk index: 1
-2024-05-29 18:03:41 - Received OVSignalBuffer
-2024-05-29 18:03:41 - Processing chunk index: 2
-2024-05-29 18:03:41 - Received OVSignalBuffer
-2024-05-29 18:03:41 - Processing chunk with length: 1
-2024-05-29 18:03:41 - [[[ 5.42244860e-12 -5.36030506e-02 -3.10612316e-01 ... -1.35505173e+00
-   -1.20662334e+00 -1.20662334e+00]
-  [-1.00521730e-11  8.50134798e-02  4.92336450e-01 ... -5.49812520e-01
-   -1.07711477e+00 -1.07711477e+00]
-  [-2.38059572e-14  1.87262676e-01  2.80798622e-01 ...  2.88786645e+00
-    2.49811354e+00  2.49811354e+00]
+  [-1.10507561e-11  6.90528610e-01  1.43276397e+00 ...  1.18590434e+00
+    1.85719565e-01  1.85719565e-01]
+  [-5.30907124e-12  6.24792629e-01  1.73135713e+00 ... -3.66725520e-01
+   -1.95031761e-01 -1.95031761e-01]
+  [ 3.84332982e-12 -1.17874808e-02  4.92518905e-01 ... -1.84333607e-01
+   -8.65221214e-01 -8.65221214e-01]]]
+2024-05-30 11:07:32 - Data prepared for prediction: (1, 8, 321)
+2024-05-30 11:07:32 - Entering Predict
+2024-05-30 11:07:32 - Model raw output: tensor([[ 7.8324, -5.2281, -8.3787]], grad_fn=<AddmmBackward0>)
+2024-05-30 11:07:32 - Prediction made: 0
+2024-05-30 11:07:32 - Prediction 0 appended to output file at 2024-05-30 11:07:32:66.
+2024-05-30 11:07:32 - Processing chunk index: 0
+2024-05-30 11:07:32 - Received OVSignalBuffer
+2024-05-30 11:07:32 - Processing chunk index: 1
+2024-05-30 11:07:32 - Received OVSignalBuffer
+2024-05-30 11:07:32 - Processing chunk index: 2
+2024-05-30 11:07:32 - Received OVSignalBuffer
+2024-05-30 11:07:32 - Processing chunk index: 3
+2024-05-30 11:07:32 - Received OVSignalBuffer
+2024-05-30 11:07:33 - Processing chunk index: 0
+2024-05-30 11:07:33 - Received OVSignalBuffer
+2024-05-30 11:07:33 - Processing chunk index: 1
+2024-05-30 11:07:33 - Received OVSignalBuffer
+2024-05-30 11:07:33 - Processing chunk index: 2
+2024-05-30 11:07:33 - Received OVSignalBuffer
+2024-05-30 11:07:33 - Processing chunk index: 3
+2024-05-30 11:07:33 - Received OVSignalBuffer
+2024-05-30 11:07:33 - Processing chunk with length: 1
+2024-05-30 11:07:33 - [[[ 2.89075847e-12  1.55978199e-01  5.32272779e-01 ...  1.38970593e+00
+    1.66493165e+00  1.66493165e+00]
+  [ 5.31659577e-12 -1.46911263e-02 -3.29714129e-03 ...  9.37079080e-01
+    4.94265346e-01  4.94265346e-01]
+  [ 3.38280931e-12 -2.79804061e-01 -1.01720589e+00 ... -1.27579865e+00
+   -1.00613129e+00 -1.00613129e+00]
   ...
-  [-6.11820872e-12  7.09778960e-01  1.34884614e+00 ... -3.89735242e-01
-    1.61715829e-01  1.61715829e-01]
-  [ 1.59135011e-11 -5.99235564e-01 -1.78164034e+00 ...  1.72032948e+00
-    1.52494585e+00  1.52494585e+00]
-  [ 1.52653723e-12  1.14664171e-01  8.92372658e-01 ... -1.45775292e+00
-   -1.32157469e+00 -1.32157469e+00]]]
-2024-05-29 18:03:41 - Data prepared for prediction: (1, 10, 321)
-2024-05-29 18:03:41 - Entering Predict
-2024-05-29 18:03:41 - An error occurred: Shape mismatch, 3 != 1
-2024-05-29 18:03:41 - Prediction made: None
-2024-05-29 18:03:41 - No prediction to append to the output file.
-2024-05-29 18:03:42 - Processing chunk index: 0
-2024-05-29 18:03:42 - Received OVSignalBuffer
-2024-05-29 18:03:42 - Processing chunk index: 1
-2024-05-29 18:03:42 - Received OVSignalBuffer
-2024-05-29 18:03:42 - Processing chunk index: 2
-2024-05-29 18:03:42 - Received OVSignalBuffer
-2024-05-29 18:03:42 - Processing chunk with length: 1
-2024-05-29 18:03:42 - [[[ 5.42244860e-12 -5.36030506e-02 -3.10612316e-01 ... -1.35505173e+00
-   -1.20662334e+00 -1.20662334e+00]
-  [-1.00521730e-11  8.50134798e-02  4.92336450e-01 ... -5.49812520e-01
-   -1.07711477e+00 -1.07711477e+00]
-  [-2.38059572e-14  1.87262676e-01  2.80798622e-01 ...  2.88786645e+00
-    2.49811354e+00  2.49811354e+00]
+  [-1.10507561e-11  6.90528610e-01  1.43276397e+00 ...  1.18590434e+00
+    1.85719565e-01  1.85719565e-01]
+  [-5.30907124e-12  6.24792629e-01  1.73135713e+00 ... -3.66725520e-01
+   -1.95031761e-01 -1.95031761e-01]
+  [ 3.84332982e-12 -1.17874808e-02  4.92518905e-01 ... -1.84333607e-01
+   -8.65221214e-01 -8.65221214e-01]]]
+2024-05-30 11:07:33 - Data prepared for prediction: (1, 8, 321)
+2024-05-30 11:07:33 - Entering Predict
+2024-05-30 11:07:33 - Model raw output: tensor([[ 7.8324, -5.2281, -8.3787]], grad_fn=<AddmmBackward0>)
+2024-05-30 11:07:33 - Prediction made: 0
+2024-05-30 11:07:33 - Prediction 0 appended to output file at 2024-05-30 11:07:33:66.
+2024-05-30 11:07:33 - Processing chunk index: 0
+2024-05-30 11:07:33 - Received OVSignalBuffer
+2024-05-30 11:07:33 - Processing chunk index: 1
+2024-05-30 11:07:33 - Received OVSignalBuffer
+2024-05-30 11:07:33 - Processing chunk index: 2
+2024-05-30 11:07:33 - Received OVSignalBuffer
+2024-05-30 11:07:33 - Processing chunk index: 3
+2024-05-30 11:07:33 - Received OVSignalBuffer
+2024-05-30 11:07:33 - Processing chunk index: 4
+2024-05-30 11:07:33 - Received OVSignalBuffer
+2024-05-30 11:07:34 - Processing chunk index: 0
+2024-05-30 11:07:34 - Received OVSignalBuffer
+2024-05-30 11:07:34 - Processing chunk index: 1
+2024-05-30 11:07:34 - Received OVSignalBuffer
+2024-05-30 11:07:34 - Processing chunk index: 2
+2024-05-30 11:07:34 - Received OVSignalBuffer
+2024-05-30 11:07:34 - Processing chunk index: 3
+2024-05-30 11:07:34 - Received OVSignalBuffer
+2024-05-30 11:07:34 - Processing chunk index: 4
+2024-05-30 11:07:34 - Received OVSignalBuffer
+2024-05-30 11:07:34 - Processing chunk with length: 1
+2024-05-30 11:07:34 - [[[ 2.89075847e-12  1.55978199e-01  5.32272779e-01 ...  1.38970593e+00
+    1.66493165e+00  1.66493165e+00]
+  [ 5.31659577e-12 -1.46911263e-02 -3.29714129e-03 ...  9.37079080e-01
+    4.94265346e-01  4.94265346e-01]
+  [ 3.38280931e-12 -2.79804061e-01 -1.01720589e+00 ... -1.27579865e+00
+   -1.00613129e+00 -1.00613129e+00]
   ...
-  [-6.11820872e-12  7.09778960e-01  1.34884614e+00 ... -3.89735242e-01
-    1.61715829e-01  1.61715829e-01]
-  [ 1.59135011e-11 -5.99235564e-01 -1.78164034e+00 ...  1.72032948e+00
-    1.52494585e+00  1.52494585e+00]
-  [ 1.52653723e-12  1.14664171e-01  8.92372658e-01 ... -1.45775292e+00
-   -1.32157469e+00 -1.32157469e+00]]]
-2024-05-29 18:03:42 - Data prepared for prediction: (1, 10, 321)
-2024-05-29 18:03:42 - Entering Predict
-2024-05-29 18:03:42 - An error occurred: Shape mismatch, 3 != 1
-2024-05-29 18:03:42 - Prediction made: None
-2024-05-29 18:03:42 - No prediction to append to the output file.
-2024-05-29 18:03:42 - Processing chunk index: 0
-2024-05-29 18:03:42 - Received OVSignalBuffer
-2024-05-29 18:03:42 - Processing chunk index: 1
-2024-05-29 18:03:42 - Received OVSignalBuffer
-2024-05-29 18:03:42 - Processing chunk index: 2
-2024-05-29 18:03:42 - Received OVSignalBuffer
-2024-05-29 18:03:42 - Processing chunk index: 3
-2024-05-29 18:03:42 - Received OVSignalBuffer
-2024-05-29 18:03:42 - Processing chunk with length: 1
-2024-05-29 18:03:42 - [[[ 5.42244860e-12 -5.36030506e-02 -3.10612316e-01 ... -1.35505173e+00
-   -1.20662334e+00 -1.20662334e+00]
-  [-1.00521730e-11  8.50134798e-02  4.92336450e-01 ... -5.49812520e-01
-   -1.07711477e+00 -1.07711477e+00]
-  [-2.38059572e-14  1.87262676e-01  2.80798622e-01 ...  2.88786645e+00
-    2.49811354e+00  2.49811354e+00]
+  [-1.10507561e-11  6.90528610e-01  1.43276397e+00 ...  1.18590434e+00
+    1.85719565e-01  1.85719565e-01]
+  [-5.30907124e-12  6.24792629e-01  1.73135713e+00 ... -3.66725520e-01
+   -1.95031761e-01 -1.95031761e-01]
+  [ 3.84332982e-12 -1.17874808e-02  4.92518905e-01 ... -1.84333607e-01
+   -8.65221214e-01 -8.65221214e-01]]]
+2024-05-30 11:07:34 - Data prepared for prediction: (1, 8, 321)
+2024-05-30 11:07:34 - Entering Predict
+2024-05-30 11:07:34 - Model raw output: tensor([[ 7.8324, -5.2281, -8.3787]], grad_fn=<AddmmBackward0>)
+2024-05-30 11:07:34 - Prediction made: 0
+2024-05-30 11:07:34 - Prediction 0 appended to output file at 2024-05-30 11:07:34:66.
+2024-05-30 11:07:34 - Processing chunk index: 0
+2024-05-30 11:07:34 - Received OVSignalBuffer
+2024-05-30 11:07:34 - Processing chunk index: 1
+2024-05-30 11:07:34 - Received OVSignalBuffer
+2024-05-30 11:07:34 - Processing chunk index: 2
+2024-05-30 11:07:34 - Received OVSignalBuffer
+2024-05-30 11:07:34 - Processing chunk index: 3
+2024-05-30 11:07:34 - Received OVSignalBuffer
+2024-05-30 11:07:34 - Processing chunk index: 4
+2024-05-30 11:07:34 - Received OVSignalBuffer
+2024-05-30 11:07:34 - Processing chunk index: 5
+2024-05-30 11:07:34 - Received OVSignalBuffer
+2024-05-30 11:07:35 - Processing chunk index: 0
+2024-05-30 11:07:35 - Received OVSignalBuffer
+2024-05-30 11:07:35 - Processing chunk index: 1
+2024-05-30 11:07:35 - Received OVSignalBuffer
+2024-05-30 11:07:35 - Processing chunk index: 2
+2024-05-30 11:07:35 - Received OVSignalBuffer
+2024-05-30 11:07:35 - Processing chunk index: 3
+2024-05-30 11:07:35 - Received OVSignalBuffer
+2024-05-30 11:07:35 - Processing chunk index: 4
+2024-05-30 11:07:35 - Received OVSignalBuffer
+2024-05-30 11:07:35 - Processing chunk index: 5
+2024-05-30 11:07:35 - Received OVSignalBuffer
+2024-05-30 11:07:35 - Processing chunk with length: 1
+2024-05-30 11:07:35 - [[[ 2.89075847e-12  1.55978199e-01  5.32272779e-01 ...  1.38970593e+00
+    1.66493165e+00  1.66493165e+00]
+  [ 5.31659577e-12 -1.46911263e-02 -3.29714129e-03 ...  9.37079080e-01
+    4.94265346e-01  4.94265346e-01]
+  [ 3.38280931e-12 -2.79804061e-01 -1.01720589e+00 ... -1.27579865e+00
+   -1.00613129e+00 -1.00613129e+00]
   ...
-  [-6.11820872e-12  7.09778960e-01  1.34884614e+00 ... -3.89735242e-01
-    1.61715829e-01  1.61715829e-01]
-  [ 1.59135011e-11 -5.99235564e-01 -1.78164034e+00 ...  1.72032948e+00
-    1.52494585e+00  1.52494585e+00]
-  [ 1.52653723e-12  1.14664171e-01  8.92372658e-01 ... -1.45775292e+00
-   -1.32157469e+00 -1.32157469e+00]]]
-2024-05-29 18:03:42 - Data prepared for prediction: (1, 10, 321)
-2024-05-29 18:03:42 - Entering Predict
-2024-05-29 18:03:42 - An error occurred: Shape mismatch, 3 != 1
-2024-05-29 18:03:42 - Prediction made: None
-2024-05-29 18:03:42 - No prediction to append to the output file.
-2024-05-29 18:03:43 - Processing chunk index: 0
-2024-05-29 18:03:43 - Received OVSignalBuffer
-2024-05-29 18:03:43 - Processing chunk index: 1
-2024-05-29 18:03:43 - Received OVSignalBuffer
-2024-05-29 18:03:43 - Processing chunk index: 2
-2024-05-29 18:03:43 - Received OVSignalBuffer
-2024-05-29 18:03:43 - Processing chunk index: 3
-2024-05-29 18:03:43 - Received OVSignalBuffer
-2024-05-29 18:03:43 - Processing chunk with length: 1
-2024-05-29 18:03:43 - [[[ 5.42244860e-12 -5.36030506e-02 -3.10612316e-01 ... -1.35505173e+00
-   -1.20662334e+00 -1.20662334e+00]
-  [-1.00521730e-11  8.50134798e-02  4.92336450e-01 ... -5.49812520e-01
-   -1.07711477e+00 -1.07711477e+00]
-  [-2.38059572e-14  1.87262676e-01  2.80798622e-01 ...  2.88786645e+00
-    2.49811354e+00  2.49811354e+00]
+  [-1.10507561e-11  6.90528610e-01  1.43276397e+00 ...  1.18590434e+00
+    1.85719565e-01  1.85719565e-01]
+  [-5.30907124e-12  6.24792629e-01  1.73135713e+00 ... -3.66725520e-01
+   -1.95031761e-01 -1.95031761e-01]
+  [ 3.84332982e-12 -1.17874808e-02  4.92518905e-01 ... -1.84333607e-01
+   -8.65221214e-01 -8.65221214e-01]]]
+2024-05-30 11:07:35 - Data prepared for prediction: (1, 8, 321)
+2024-05-30 11:07:35 - Entering Predict
+2024-05-30 11:07:35 - Model raw output: tensor([[ 7.8324, -5.2281, -8.3787]], grad_fn=<AddmmBackward0>)
+2024-05-30 11:07:35 - Prediction made: 0
+2024-05-30 11:07:35 - Prediction 0 appended to output file at 2024-05-30 11:07:35:66.
+2024-05-30 11:07:35 - Processing chunk index: 0
+2024-05-30 11:07:35 - Received OVSignalBuffer
+2024-05-30 11:07:35 - Processing chunk index: 1
+2024-05-30 11:07:35 - Received OVSignalBuffer
+2024-05-30 11:07:35 - Processing chunk index: 2
+2024-05-30 11:07:35 - Received OVSignalBuffer
+2024-05-30 11:07:35 - Processing chunk index: 3
+2024-05-30 11:07:35 - Received OVSignalBuffer
+2024-05-30 11:07:35 - Processing chunk index: 4
+2024-05-30 11:07:35 - Received OVSignalBuffer
+2024-05-30 11:07:35 - Processing chunk index: 5
+2024-05-30 11:07:35 - Received OVSignalBuffer
+2024-05-30 11:07:35 - Processing chunk index: 6
+2024-05-30 11:07:35 - Received OVSignalBuffer
+2024-05-30 11:07:36 - Processing chunk index: 0
+2024-05-30 11:07:36 - Received OVSignalBuffer
+2024-05-30 11:07:36 - Processing chunk index: 1
+2024-05-30 11:07:36 - Received OVSignalBuffer
+2024-05-30 11:07:36 - Processing chunk index: 2
+2024-05-30 11:07:36 - Received OVSignalBuffer
+2024-05-30 11:07:36 - Processing chunk index: 3
+2024-05-30 11:07:36 - Received OVSignalBuffer
+2024-05-30 11:07:36 - Processing chunk index: 4
+2024-05-30 11:07:36 - Received OVSignalBuffer
+2024-05-30 11:07:36 - Processing chunk index: 5
+2024-05-30 11:07:36 - Received OVSignalBuffer
+2024-05-30 11:07:36 - Processing chunk index: 6
+2024-05-30 11:07:36 - Received OVSignalBuffer
+2024-05-30 11:07:36 - Processing chunk index: 7
+2024-05-30 11:07:36 - Received OVSignalBuffer
+2024-05-30 11:07:36 - Processing chunk with length: 1
+2024-05-30 11:07:36 - [[[ 2.89075847e-12  1.55978199e-01  5.32272779e-01 ...  1.38970593e+00
+    1.66493165e+00  1.66493165e+00]
+  [ 5.31659577e-12 -1.46911263e-02 -3.29714129e-03 ...  9.37079080e-01
+    4.94265346e-01  4.94265346e-01]
+  [ 3.38280931e-12 -2.79804061e-01 -1.01720589e+00 ... -1.27579865e+00
+   -1.00613129e+00 -1.00613129e+00]
   ...
-  [-6.11820872e-12  7.09778960e-01  1.34884614e+00 ... -3.89735242e-01
-    1.61715829e-01  1.61715829e-01]
-  [ 1.59135011e-11 -5.99235564e-01 -1.78164034e+00 ...  1.72032948e+00
-    1.52494585e+00  1.52494585e+00]
-  [ 1.52653723e-12  1.14664171e-01  8.92372658e-01 ... -1.45775292e+00
-   -1.32157469e+00 -1.32157469e+00]]]
-2024-05-29 18:03:43 - Data prepared for prediction: (1, 10, 321)
-2024-05-29 18:03:43 - Entering Predict
-2024-05-29 18:03:43 - An error occurred: Shape mismatch, 3 != 1
-2024-05-29 18:03:43 - Prediction made: None
-2024-05-29 18:03:43 - No prediction to append to the output file.
-2024-05-29 18:03:43 - Processing chunk index: 0
-2024-05-29 18:03:43 - Received OVSignalBuffer
-2024-05-29 18:03:43 - Processing chunk index: 1
-2024-05-29 18:03:43 - Received OVSignalBuffer
-2024-05-29 18:03:43 - Processing chunk index: 2
-2024-05-29 18:03:43 - Received OVSignalBuffer
-2024-05-29 18:03:43 - Processing chunk index: 3
-2024-05-29 18:03:43 - Received OVSignalBuffer
-2024-05-29 18:03:43 - Processing chunk index: 4
-2024-05-29 18:03:43 - Received OVSignalBuffer
-2024-05-29 18:03:43 - Processing chunk with length: 1
-2024-05-29 18:03:43 - [[[ 5.42244860e-12 -5.36030506e-02 -3.10612316e-01 ... -1.35505173e+00
-   -1.20662334e+00 -1.20662334e+00]
-  [-1.00521730e-11  8.50134798e-02  4.92336450e-01 ... -5.49812520e-01
-   -1.07711477e+00 -1.07711477e+00]
-  [-2.38059572e-14  1.87262676e-01  2.80798622e-01 ...  2.88786645e+00
-    2.49811354e+00  2.49811354e+00]
-  ...
-  [-6.11820872e-12  7.09778960e-01  1.34884614e+00 ... -3.89735242e-01
-    1.61715829e-01  1.61715829e-01]
-  [ 1.59135011e-11 -5.99235564e-01 -1.78164034e+00 ...  1.72032948e+00
-    1.52494585e+00  1.52494585e+00]
-  [ 1.52653723e-12  1.14664171e-01  8.92372658e-01 ... -1.45775292e+00
-   -1.32157469e+00 -1.32157469e+00]]]
-2024-05-29 18:03:43 - Data prepared for prediction: (1, 10, 321)
-2024-05-29 18:03:43 - Entering Predict
-2024-05-29 18:03:43 - An error occurred: Shape mismatch, 3 != 1
-2024-05-29 18:03:43 - Prediction made: None
-2024-05-29 18:03:43 - No prediction to append to the output file.
+  [-1.10507561e-11  6.90528610e-01  1.43276397e+00 ...  1.18590434e+00
+    1.85719565e-01  1.85719565e-01]
+  [-5.30907124e-12  6.24792629e-01  1.73135713e+00 ... -3.66725520e-01
+   -1.95031761e-01 -1.95031761e-01]
+  [ 3.84332982e-12 -1.17874808e-02  4.92518905e-01 ... -1.84333607e-01
+   -8.65221214e-01 -8.65221214e-01]]]
+2024-05-30 11:07:36 - Data prepared for prediction: (1, 8, 321)
+2024-05-30 11:07:36 - Entering Predict
+2024-05-30 11:07:36 - Model raw output: tensor([[ 7.8324, -5.2281, -8.3787]], grad_fn=<AddmmBackward0>)
+2024-05-30 11:07:36 - Prediction made: 0
+2024-05-30 11:07:36 - Prediction 0 appended to output file at 2024-05-30 11:07:36:67.
+2024-05-30 11:07:36 - Processing chunk index: 0
+2024-05-30 11:07:36 - Received OVSignalBuffer
+2024-05-30 11:07:36 - Processing chunk index: 1
+2024-05-30 11:07:36 - Received OVSignalBuffer
+2024-05-30 11:07:36 - Processing chunk index: 2
+2024-05-30 11:07:36 - Received OVSignalBuffer
+2024-05-30 11:07:36 - Processing chunk index: 3
+2024-05-30 11:07:36 - Received OVSignalBuffer
+2024-05-30 11:07:36 - Processing chunk index: 4
+2024-05-30 11:07:36 - Received OVSignalBuffer
+2024-05-30 11:07:36 - Processing chunk index: 5
+2024-05-30 11:07:36 - Received OVSignalBuffer
+2024-05-30 11:07:36 - Processing chunk index: 6
+2024-05-30 11:07:36 - Received OVSignalBuffer
+2024-05-30 11:07:36 - Processing chunk index: 7
+2024-05-30 11:07:36 - Received OVSignalBuffer
