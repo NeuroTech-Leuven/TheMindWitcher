@@ -47,12 +47,14 @@ class MyOVBox(OVBox):
                     self.signalHeader.dimensionSizes,
                     self.signalHeader.dimensionLabels,
                     self.signalHeader.samplingRate)
+                self.nbEEGChannels = self.signalHeader.dimensionSizes[0] - 2
+                
             elif type(self.input[0][chunkIndex]) == OVSignalBuffer:
                 log_debug_message("Received OVSignalBuffer")
                 chunk = self.input[0][chunkIndex] 
                 concatenated = np.array(chunk).tolist()
                 to_process = []
-                for i in range(self.signalHeader.dimensionSizes[0]):
+                for i in range(self.nbEEGChannels):
                     start_idx = i * int(len(concatenated)/self.signalHeader.dimensionSizes[0])
                     end_idx = start_idx + int(len(concatenated)/self.signalHeader.dimensionSizes[0])
                     # last_sample = concatenated[end_idx]
@@ -64,6 +66,7 @@ class MyOVBox(OVBox):
                 # self.output[0].append(chunk)  # Append the received buffer to the output
                 if chunkIndex + 1 == len(self.input[0]):
                     self.processor.process_chunk(to_process)  
+
             elif type(self.input[0][chunkIndex]) == OVSignalEnd:
                 log_debug_message("Received OVSignalEnd")
                 self.output[0].append(self.input[0].pop())
@@ -108,13 +111,16 @@ class EEGProcessor:
             return
         try:
             with open(self.output_file, 'a') as f:
-                timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S:%f')[:-4]
+                # print(f"Write to predictions file: {timestamp}")
                 f.write(f'{timestamp},{prediction}\n')
             log_debug_message(f"Prediction {prediction} appended to output file at {timestamp}.")
         except Exception as e:
             log_debug_message(f"Error appending to output file: {e}")
 
     def process_chunk(self, chunk):
+        timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S:%f')[:-4]
+        print(f"Process chunk at time {timestamp}")
         log_debug_message(f"Processing chunk with length: {len(chunk)}")
         data = np.array( chunk, dtype = np.float64)
         log_debug_message(data)
@@ -145,6 +151,8 @@ class EEGProcessor:
                 # Right action
                 print("RIGHT: Call horse")
                 pressKey(HORSE_KEY)
+            # else:
+            #     print(f"No action {timestamp}")
             log_debug_message(f"Prediction: {prediction}")
             return prediction
         except Exception as e:

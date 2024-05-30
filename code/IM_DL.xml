@@ -8,7 +8,7 @@
 	<Boxes>
 		<Box>
 			<Identifier>(0x000002bd, 0x000044c6)</Identifier>
-			<Name>Python 3 scripting</Name>
+			<Name>Modding</Name>
 			<AlgorithmClassIdentifier>(0x5dc4f669, 0xd3fd4d63)</AlgorithmClassIdentifier>
 			<Settings>
 				<Setting>
@@ -205,11 +205,11 @@
 			<Attributes>
 				<Attribute>
 					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
-					<Value>272</Value>
+					<Value>288</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>736</Value>
+					<Value>608</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
@@ -248,11 +248,11 @@
 			<Attributes>
 				<Attribute>
 					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
-					<Value>320</Value>
+					<Value>336</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>672</Value>
+					<Value>560</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
@@ -354,121 +354,11 @@
 			<Attributes>
 				<Attribute>
 					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
-					<Value>288</Value>
+					<Value>224</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>448</Value>
-				</Attribute>
-				<Attribute>
-					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
-					<Value>(0x92c056a7, 0x2dc71aff)</Value>
-				</Attribute>
-				<Attribute>
-					<Identifier>(0x527ad68d, 0x16d746a0)</Identifier>
-					<Value></Value>
-				</Attribute>
-				<Attribute>
-					<Identifier>(0xce18836a, 0x9c0eb403)</Identifier>
-					<Value>9</Value>
-				</Attribute>
-				<Attribute>
-					<Identifier>(0xcfad85b0, 0x7c6d841c)</Identifier>
-					<Value>3</Value>
-				</Attribute>
-			</Attributes>
-		</Box>
-		<Box>
-			<Identifier>(0x00004361, 0x000023c2)</Identifier>
-			<Name>EpochedData</Name>
-			<AlgorithmClassIdentifier>(0x0055be5f, 0x087bdd12)</AlgorithmClassIdentifier>
-			<Inputs>
-				<Input>
-					<TypeIdentifier>(0x5ba36127, 0x195feae1)</TypeIdentifier>
-					<Name>Data</Name>
-				</Input>
-				<Input>
-					<TypeIdentifier>(0x6f752dd0, 0x082a321e)</TypeIdentifier>
-					<Name>Stimulations</Name>
-				</Input>
-				<Input>
-					<TypeIdentifier>(0x6ab26b81, 0x0f8c02f3)</TypeIdentifier>
-					<Name>Channel Units</Name>
-				</Input>
-			</Inputs>
-			<Settings>
-				<Setting>
-					<TypeIdentifier>(0x5de046a6, 0x086340aa)</TypeIdentifier>
-					<Name>Display Mode</Name>
-					<DefaultValue>Scan</DefaultValue>
-					<Value>Scan</Value>
-					<Modifiability>false</Modifiability>
-				</Setting>
-				<Setting>
-					<TypeIdentifier>(0x33a30739, 0x00d5299b)</TypeIdentifier>
-					<Name>Auto vertical scale</Name>
-					<DefaultValue>Per channel</DefaultValue>
-					<Value>Per channel</Value>
-					<Modifiability>false</Modifiability>
-				</Setting>
-				<Setting>
-					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
-					<Name>Scale refresh interval (secs)</Name>
-					<DefaultValue>5</DefaultValue>
-					<Value>5</Value>
-					<Modifiability>false</Modifiability>
-				</Setting>
-				<Setting>
-					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
-					<Name>Vertical Scale</Name>
-					<DefaultValue>100</DefaultValue>
-					<Value>100</Value>
-					<Modifiability>false</Modifiability>
-				</Setting>
-				<Setting>
-					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
-					<Name>Vertical Offset</Name>
-					<DefaultValue>0</DefaultValue>
-					<Value>0</Value>
-					<Modifiability>false</Modifiability>
-				</Setting>
-				<Setting>
-					<TypeIdentifier>(0x512a166f, 0x5c3ef83f)</TypeIdentifier>
-					<Name>Time Scale</Name>
-					<DefaultValue>10</DefaultValue>
-					<Value>10</Value>
-					<Modifiability>false</Modifiability>
-				</Setting>
-				<Setting>
-					<TypeIdentifier>(0x2cdb2f0b, 0x12f231ea)</TypeIdentifier>
-					<Name>Bottom ruler</Name>
-					<DefaultValue>true</DefaultValue>
-					<Value>true</Value>
-					<Modifiability>false</Modifiability>
-				</Setting>
-				<Setting>
-					<TypeIdentifier>(0x2cdb2f0b, 0x12f231ea)</TypeIdentifier>
-					<Name>Left ruler</Name>
-					<DefaultValue>false</DefaultValue>
-					<Value>false</Value>
-					<Modifiability>false</Modifiability>
-				</Setting>
-				<Setting>
-					<TypeIdentifier>(0x2cdb2f0b, 0x12f231ea)</TypeIdentifier>
-					<Name>Multiview</Name>
-					<DefaultValue>false</DefaultValue>
-					<Value>false</Value>
-					<Modifiability>false</Modifiability>
-				</Setting>
-			</Settings>
-			<Attributes>
-				<Attribute>
-					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
-					<Value>448</Value>
-				</Attribute>
-				<Attribute>
-					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>800</Value>
+					<Value>416</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
@@ -522,11 +412,11 @@
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
-					<Value>448</Value>
+					<Value>464</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>624</Value>
+					<Value>512</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x30a4e5c9, 0x83502953)</Identifier>
@@ -593,11 +483,11 @@
 			<Attributes>
 				<Attribute>
 					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
-					<Value>368</Value>
+					<Value>384</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>656</Value>
+					<Value>544</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
@@ -673,11 +563,11 @@
 			<Attributes>
 				<Attribute>
 					<Identifier>(0x1fa7a38f, 0x54edbe0b)</Identifier>
-					<Value>208</Value>
+					<Value>224</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x207c9054, 0x3c841b63)</Identifier>
-					<Value>720</Value>
+					<Value>608</Value>
 				</Attribute>
 				<Attribute>
 					<Identifier>(0x4e7b798a, 0x183beafb)</Identifier>
@@ -703,17 +593,6 @@
 		</Box>
 	</Boxes>
 	<Links>
-		<Link>
-			<Identifier>(0x000034ab, 0x00005b96)</Identifier>
-			<Source>
-				<BoxIdentifier>(0x00005d7c, 0x000068ed)</BoxIdentifier>
-				<BoxOutputIndex>0</BoxOutputIndex>
-			</Source>
-			<Target>
-				<BoxIdentifier>(0x00004361, 0x000023c2)</BoxIdentifier>
-				<BoxInputIndex>0</BoxInputIndex>
-			</Target>
-		</Link>
 		<Link>
 			<Identifier>(0x00003862, 0x00005b03)</Identifier>
 			<Source>
@@ -786,7 +665,7 @@
 		<Entry>
 			<Identifier>(0x00004f6b, 0x00006871)</Identifier>
 			<Type>(0x3bcce5d2, 0x43f2d968)</Type>
-			<Data>[{"boxIdentifier":"(0x00004361, 0x000023c1)","childCount":0,"identifier":"(0x00000c82, 0x00002a69)","parentIdentifier":"(0xffffffff, 0xffffffff)","type":3},{"boxIdentifier":"(0x00004361, 0x000023c2)","childCount":0,"identifier":"(0x000019c4, 0x0000289a)","parentIdentifier":"(0xffffffff, 0xffffffff)","type":3},{"boxIdentifier":"(0xffffffff, 0xffffffff)","childCount":1,"height":320,"identifier":"(0x00001c8a, 0x0000324f)","name":"Default window","parentIdentifier":"(0xffffffff, 0xffffffff)","type":1,"width":475},{"boxIdentifier":"(0xffffffff, 0xffffffff)","childCount":1,"identifier":"(0x00000d9c, 0x00001b10)","index":0,"name":"Default tab","parentIdentifier":"(0x00001c8a, 0x0000324f)","type":2},{"boxIdentifier":"(0xffffffff, 0xffffffff)","childCount":0,"identifier":"(0x00003cfd, 0x000077e0)","index":0,"name":"Empty","parentIdentifier":"(0x00000d9c, 0x00001b10)","type":0}]</Data>
+			<Data>[{"boxIdentifier":"(0x00004361, 0x000023c1)","childCount":0,"identifier":"(0x00000c82, 0x00002a69)","parentIdentifier":"(0xffffffff, 0xffffffff)","type":3},{"boxIdentifier":"(0xffffffff, 0xffffffff)","childCount":1,"height":320,"identifier":"(0x00001c8a, 0x0000324f)","name":"Default window","parentIdentifier":"(0xffffffff, 0xffffffff)","type":1,"width":475},{"boxIdentifier":"(0xffffffff, 0xffffffff)","childCount":1,"identifier":"(0x00000d9c, 0x00001b10)","index":0,"name":"Default tab","parentIdentifier":"(0x00001c8a, 0x0000324f)","type":2},{"boxIdentifier":"(0xffffffff, 0xffffffff)","childCount":0,"identifier":"(0x00003cfd, 0x000077e0)","index":0,"name":"Empty","parentIdentifier":"(0x00000d9c, 0x00001b10)","type":0}]</Data>
 		</Entry>
 	</Metadata>
 	<Attributes>

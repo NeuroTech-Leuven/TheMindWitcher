@@ -3,7 +3,6 @@ import pickle
 
 from scipy.stats import kurtosis, skew
 import pandas as pd
-import sklearn
 
 # Ignore inconsistent version warnings
 # import warnings
@@ -16,7 +15,7 @@ modelsDic = dirname(dirname(getsourcefile(lambda:0))) + "/models"
 
 # from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, ConfusionMatrixDisplay
 
-def psd_computation(signal, fs, flip=False):
+def psd_computation_CSP(signal, fs, flip=False):
     """
     Compute the Power Spectral Density (PSD) of a signal.
  
@@ -43,7 +42,7 @@ def psd_computation(signal, fs, flip=False):
  
     return amplitude, freq
 
-def psd(trials):
+def psd_CSP(trials):
     '''
     Calculates for each trial the Power Spectral Density (PSD).
 
@@ -70,7 +69,7 @@ def psd(trials):
             # Fs = math.floor(len(trials[ch,:,trial])/2)
             Fs = 512
             # print(np.array(trials[ch,:,trial]))
-            (PSD, freqs) = psd_computation(np.array(trials[ch,:,trial]), Fs)
+            (PSD, freqs) = psd_computation_CSP(np.array(trials[ch,:,trial]), Fs)
 
             if trial == 0 and ch == 0:
                 trials_PSD = np.zeros((nchannels, len(PSD), ntrials))
@@ -79,7 +78,7 @@ def psd(trials):
 
     return trials_PSD, freqs
 
-def apply_mix(W, trials):
+def apply_mix_CSP(W, trials):
     ''' Apply a mixing matrix to each trial (basically multiply W with the EEG signal matrix)'''
     nchannels = trials.shape[0]
     nsamples = trials.shape[1]
@@ -89,7 +88,7 @@ def apply_mix(W, trials):
         trials_csp[:,:,i] = W.T.dot(trials[:,:,i])
     return trials_csp
 
-def extract_features(trials_PSDs, trials_time, CSP_components,freqs):
+def extract_features_CSP(trials_PSDs, trials_time, CSP_components,freqs):
 
     component_1 = CSP_components[0]
     component_2 = CSP_components[1]
@@ -137,7 +136,7 @@ def extract_features(trials_PSDs, trials_time, CSP_components,freqs):
 import numpy
 
 # let's define a new box class that inherits from OVBox
-class MyOVBox(OVBox):
+class CSPBox(OVBox):
     def __init__(self):
         OVBox.__init__(self)
         # we add a new member to save the signal header information we will receive
@@ -173,9 +172,9 @@ class MyOVBox(OVBox):
                 with open(f"{modelsDic}/W_CSP.pkl", 'rb') as f:
                     W = pickle.load(f)[0]
 
-                X_ML_CSP = apply_mix(W,X_ML)
-                X_ML_CSP_PSD, freqs = psd(X_ML)
-                ML_features= extract_features(X_ML_CSP_PSD, X_ML_CSP, [0, -2],freqs)
+                X_ML_CSP = apply_mix_CSP(W,X_ML)
+                X_ML_CSP_PSD, freqs = psd_CSP(X_ML)
+                ML_features= extract_features_CSP(X_ML_CSP_PSD, X_ML_CSP, [0, -2],freqs)
                 model = 2
                 if model == 3:
                     with open(f"{modelsDic}/Physionet_3_class_best.pkl", 'rb') as f:
@@ -187,16 +186,18 @@ class MyOVBox(OVBox):
                 # probabilities = [left, right, ~nothing]
                 probabilities = loaded_model.predict_proba(ML_features)[0]
                 print(probabilities)
-                if probabilities[0] > 0.5:
+                if probabilities[0] > 0.55:
                     # Left action
                     print("LEFT: Cast sign.")
                     pressKey(SPELL_KEY)
-                if probabilities[1] > 0.7:
+                elif probabilities[1] > 0.7:
                     # Right action
                     print("RIGHT: Call horse")
                     pressKey(HORSE_KEY)
+                else:
+                    print("No action")
                 
 
 # Finally, we notify openvibe that the box instance 'box' is now an instance of MyOVBox.
 # Don't forget that step!!
-box = MyOVBox()
+box = CSPBox()
