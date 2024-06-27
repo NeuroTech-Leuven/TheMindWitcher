@@ -24,7 +24,7 @@ The signals obtained from the headset are perturbed by noise due to various effe
 The OpenVIBE files provide the link between this data and the classifying decision. It receives the data and applies temporal filters and time epoching. For imaginary movement, a decision is made each second based on the data of the past two seconds. For the emotions, we make a decision every half minute based on data of the five seconds before. Further processing is done by some python scripts, in which the different models are applied and a classification is made. 
 
 #### Game modification
-Once the classification is decided, the right action needs to be executed in the game. This is done using keyboard commands, where python code simulates a key press. From the imaginary movement to casting a spell or calling your horse, it is just a matter of pressing the right key that controls that action. Changing the weather is not so straightforward and so we make use of the in-built debug console. More details are available [here](docs/Modding.md).
+Once the classification is decided, the right action needs to be executed in the game. This is done using keyboard commands, where python code simulates a key press. From the imaginary movement to casting a spell or calling your horse, it is just a matter of pressing the right key that controls that action. Changing the weather is not so straightforward and so we make use of the in-built debug console. More details are available [here](docs/Game modification.md).
 
 ## Repository Structure
 The repository is organized into several folders, each containing specific components of the project:
@@ -59,7 +59,7 @@ python setup.py
 ```
 and navigate to the directory where the game is installed. Typically, this is something like C:/Games/The Witcher 3.
 
-To properly use the AntNeuro headset, the right drivers need to be installed. First connect the headset with its USB port to your pc. Then open your device manager and follow the steps from [step 8](https://www.wikihow.com/Copy-Drivers-from-One-Computer-to-Another-on-PC-or-Mac) onward. The driver files are included in the repository in `drivers`. Finally, configure the OpenVIBE acquisition server with the settings as seen in [this image](<docs/OpenVIBE Acquisition Server setup.png>).
+To properly use the AntNeuro headset, the right drivers need to be installed. First connect the headset with its USB port to your pc. Then open your device manager and follow the steps from [step 8](https://www.wikihow.com/Copy-Drivers-from-One-Computer-to-Another-on-PC-or-Mac) onward. The driver files are included in the repository in `docs/driver`. Finally, configure the OpenVIBE acquisition server with the settings as seen in [this image](<docs/OpenVIBE Acquisition Server setup.png>).
 
 Now all that's left to do is run the `main.py` file. It sets up a training/calibration session for the CSP model used for Imaginary Movement. Once that's done, it starts running the model pipelines so just open the game and start playing!
 
