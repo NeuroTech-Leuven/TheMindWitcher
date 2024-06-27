@@ -1,9 +1,0 @@
-keyboard
-pyperclip
-pywin32
-pandas
-scikit-learn==1.2.2
-mne
-pyautogui
-torch
-einops
