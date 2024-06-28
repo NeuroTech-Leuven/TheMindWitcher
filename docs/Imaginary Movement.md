@@ -43,6 +43,7 @@ As the raw EEG data may contain drift, high frequency noise and/or powerline noi
 ## Machine learning model
 In the machine learning pipeline, three pipeline components were designed to work together meticulously. First, a Common Spatial Pattern (CSP) filter estimation step takes place for every subject. Here, a spatial filter is estimated in a subject-dependent manner to increase the discriminativity between our two IM classes. In short, this is done through the maximization of a class-variance ratio criterion, but more details and a more in-depth theoretical background can be found in the extensively documented jupyter notebooks. After this, a feature extraction step takes place, where Power Spectral Density (PSD) features and temporal features are calculated for the 8-15 Hz frequency band. In a last step, a gradient boosted classifier is trained on all the subjects' epochs' extracted features.
 
+![Slide5](https://github.com/NeuroTech-Leuven/TheMindWitcher/assets/141845184/5f90df8b-c703-4ca5-b6c2-6dbb8e38acaa)
 
 In the case a BCI2000 EEG system is used, comprising 64 channels, this strategy results in a classification performance with an f1 score of 84%, which is generally considered to be quite good for a multi-subject EEG application.
 
