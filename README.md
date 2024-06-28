@@ -59,7 +59,8 @@ python setup.py
 ```
 and navigate to the directory where the game is installed. Typically, this is something like C:/Games/The Witcher 3.
 
-To properly use the AntNeuro headset, the right drivers need to be installed. First connect the headset with its USB port to your pc. Then open your device manager and follow the steps from [step 8](https://www.wikihow.com/Copy-Drivers-from-One-Computer-to-Another-on-PC-or-Mac) onward. The driver files are included in the repository in `docs/driver`. Finally, configure the OpenVIBE acquisition server with the settings as seen in [this image](<docs/OpenVIBE Acquisition Server setup.png>).
+To properly use the AntNeuro headset, the right drivers need to be installed. First connect the headset with its USB port to your pc. Then open your device manager and follow the steps from [step 8](https://www.wikihow.com/Copy-Drivers-from-One-Computer-to-Another-on-PC-or-Mac) onward. The driver files are included in the repository in `docs/driver`. Finally, configure the OpenVIBE acquisition server with the settings as seen in this image. 
+<img src="docs/OpenVIBE Acquisition Server setup.png" width="600">
 
 Now all that's left to do is run the `main.py` file. It sets up a training/calibration session for the CSP model used for Imaginary Movement. Once that's done, it starts running the model pipelines so just open the game and start playing!
 

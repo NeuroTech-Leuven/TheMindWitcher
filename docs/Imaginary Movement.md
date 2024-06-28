@@ -1,4 +1,4 @@
-# Data processing
+# Imaginary Movement
 This file contains the details on the implementation of an (imaginary) movement classification system using EEG (electroencephalography) data. This project aims to recognize two different states: moving your left hand, right hand or no hand at all.
 
 ## Model implementations
