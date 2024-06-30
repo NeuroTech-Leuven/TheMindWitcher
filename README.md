@@ -60,6 +60,7 @@ python setup.py
 and navigate to the directory where the game is installed. Typically, this is something like C:/Games/The Witcher 3.
 
 To properly use the AntNeuro headset, the right drivers need to be installed. First connect the headset with its USB port to your pc. Then open your device manager and follow the steps from [step 8](https://www.wikihow.com/Copy-Drivers-from-One-Computer-to-Another-on-PC-or-Mac) onward. The driver files are included in the repository in `docs/driver`. Finally, configure the OpenVIBE acquisition server with the settings as seen in this image. 
+
 <img src="docs/OpenVIBE Acquisition Server setup.png" width="600">
 
 Now all that's left to do is run the `main.py` file. It sets up a training/calibration session for the CSP model used for Imaginary Movement. Once that's done, it starts running the model pipelines so just open the game and start playing!
@@ -67,6 +68,19 @@ Now all that's left to do is run the `main.py` file. It sets up a training/calib
 ## Limitations and future plans
 - Despite the impressive potential of our EEG-steered game, the current models face performance challenges primarily due to discrepancies between the training data and the real-time data obtained from our headset (transferring from a 64 channel to 8 channel headset). To address this, our future endeavors will focus on extensive data collection using our own headset, enabling us to train the models with data that closely mirrors actual usage conditions.
 - In the initial stages, detecting real movements is more feasible than detecting imagined movements. However, by leveraging transfer learning techniques, we plan to progressively transition to imagined movement detection, allowing us to utilize the knowledge gained from real movement data to improve the model's ability to recognize and interpret imagined movements. 
+
+## The team
+
+The Neurotech Leuven team for the Mindwitcher project consists of the following people, listed alphabetically:
+- Wout De Swaef
+- Thant Muang
+- Sofia Gonzalez Mezquita
+- Tim Lauwers
+- Orestis Lomis
+- Mathijs Vanhaverbeke
+- Lars Van Noten
+- Anke Verhaege
+
 
 ## Contact
 For any inquiries or feedback regarding the Mindwitcher project, please contact hq@ntxl.org.
