@@ -82,7 +82,7 @@
 					<TypeIdentifier>(0xb0d0db45, 0x49cbc34a)</TypeIdentifier>
 					<Name>Script</Name>
 					<DefaultValue></DefaultValue>
-					<Value>${Player_ScenarioDirectory}/pythonscripts/IM_CSP_Train.py</Value>
+					<Value>${Player_ScenarioDirectory}/Train CSP/IM_CSP_Train.py</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>

@@ -6,14 +6,8 @@ import numpy as np
 from datetime import datetime, timedelta
 import torch
 
-# Get location of this file to find path to models
-from inspect import getsourcefile
-from os.path import dirname
-currentDic = dirname(getsourcefile(lambda:0))
-modelsDic = dirname(currentDic) + "/models"
-
 # Path to the debug log file
-debug_log_file = f"{currentDic}/output/IM_DL_debug_log.txt"
+debug_log_file = f"output/IM_DL_debug_log.txt"
 open(debug_log_file, 'w').close()
 
 def log_debug_message(message):
@@ -30,8 +24,8 @@ class MyOVBox(OVBox):
         self.outputHeader = None
         log_debug_message("Initializing MyOVBox...")
         self.processor = EEGProcessor(
-            model_path=f"{modelsDic}/ComfyNet_best_8_channels.ckpt",
-            output_file=f"{currentDic}/output/IM_DL_predictions.txt"
+            model_path=f"models/ComfyNet_best_8_channels.ckpt",
+            output_file=f"output/IM_DL_predictions.txt"
         )
         log_debug_message("MyOVBox initialized.")
 

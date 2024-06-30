@@ -1,6 +1,12 @@
 # Emotions Classification: A Machine Learning Approach
 This file contains the details on the implementation of an emotion classification system using EEG (electroencephalography) data. This project aims to recognize four emotions—neutral, happy, sad, and fear based on real-time EEG signals of the user playing 'The Witcher 3'.
 
+## Files and structure
+This directory contains both the Python notebooks used to construct the data models and the Python files that connect the OpenVIBE functionality with the game modification.
+
+### Models
+Folder: `models`. 
+Contains all models used in this part of the project.
 
 ## Model implementations
 In order to achieve the emotion classification goal, two different approaches were initially viewed; the deep learning and the machine learning approaches. However, since we observed the DL model to overfit the training data significantly, we further developped the ML approach as the most viable option for this application. 

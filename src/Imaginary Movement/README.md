@@ -1,6 +1,17 @@
 # Imaginary Movement
 This file contains the details on the implementation of an (imaginary) movement classification system using EEG (electroencephalography) data. This project aims to recognize two different states: moving your left hand, right hand or no hand at all.
 
+## Files and structure
+This directory contains both the Python notebooks used to construct the data models and the Python files that connect the OpenVIBE functionality with the game modification.
+
+### Models
+Folder: `models`. 
+Contains all models used in this part of the project.
+
+### Training the CSP model
+Folder: `trainCSP`. 
+Contains all functionality to train the CSP model. To do this, simply run the file `main.py`. It contains OpenVIBE .xml files and Python scripts identically to this folder and the `src` folder.
+
 ## Model implementations
 In order to achieve the imagined movement (IM) detection and classification goal, different models were trained using a public dataset. Once pre-trained, the models can then be finetuned for new hardware. In total, two pipelines are foreseen for the IM classification task; a machine learning pipeline and a deep learning pipeline. These models will be further discussed below.
 

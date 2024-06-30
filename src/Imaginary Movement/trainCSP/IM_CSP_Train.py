@@ -93,7 +93,7 @@ class MyOVBox(OVBox):
 
    def process(self):
         # Get location of this file to find path to models
-        file_path = f"{sourceDic}/signals/IM_Acquisition_CSP.edf"
+        file_path = f"signals/IM_Acquisition_CSP.edf"
         load_and_process(file_path)
         stimSet = OVStimulationSet(self.getCurrentTime(), self.getCurrentTime()+1./self.getClock())
         stimSet.append(OVStimulation(32770, self.getCurrentTime, 0.5))             

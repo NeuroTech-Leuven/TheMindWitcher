@@ -29,7 +29,7 @@
 					<TypeIdentifier>(0xb0d0db45, 0x49cbc34a)</TypeIdentifier>
 					<Name>Script</Name>
 					<DefaultValue></DefaultValue>
-					<Value>${Player_ScenarioDirectory}/pythonscripts/IM_CSP_pipeline.py</Value>
+					<Value>${Player_ScenarioDirectory}/Imaginary Movement/CSP_pipeline.py</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>
@@ -311,7 +311,7 @@
 					<TypeIdentifier>(0xb0d0db45, 0x49cbc34a)</TypeIdentifier>
 					<Name>Script</Name>
 					<DefaultValue></DefaultValue>
-					<Value>${Player_ScenarioDirectory}/pythonscripts/modding.py</Value>
+					<Value>${Player_ScenarioDirectory}/Modding/modding.py</Value>
 					<Modifiability>false</Modifiability>
 				</Setting>
 			</Settings>

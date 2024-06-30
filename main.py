@@ -66,7 +66,7 @@ currentDic = dirname(getsourcefile(lambda:0))
 
 # Get the actual.xml files
 openvibe_path = "C:/Program Files/openvibe-3.6.0-64bit/bin/openvibe-designer.exe"
-xml_file = f"{currentDic}/code/main.xml"
+xml_file = f"{currentDic}/src/main.xml"
 
 # Create threads for each function
 thread1 = threading.Thread(target=start_openvibe_acquisition_server)

@@ -7,11 +7,6 @@ from joblib import load
 import pandas as pd
 from scipy.signal import windows
 
-# Get location of this file to find path to models
-from inspect import getsourcefile
-from os.path import dirname
-modelsDic = dirname(dirname(getsourcefile(lambda:0))) + "/models"
-
 # Ignore inconsistent version warnings
 # import warnings
 # warnings.filterwarnings("ignore", category=sklearn.exceptions.InconsistentVersionWarning)
@@ -113,7 +108,7 @@ class EMBox(OVBox):
                 ML_features = extract_features_EM(X_ML, 256)
 
                 try:
-                    grid_search_cv = load(f"{modelsDic}/EM_model.pkl")
+                    grid_search_cv = load(f"models/EM_model.pkl")
                     best_estimator = grid_search_cv.best_estimator_
                     # print("Model loaded. Type:", type(best_estimator))
                 except Exception as e:

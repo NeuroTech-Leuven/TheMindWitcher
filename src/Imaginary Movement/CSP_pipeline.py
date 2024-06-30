@@ -7,12 +7,6 @@ import pandas as pd
 # Ignore inconsistent version warnings
 # import warnings
 # warnings.filterwarnings("ignore", category=sklearn.exceptions.InconsistentVersionWarning)
-
-# Get location of this file to find path to models
-from inspect import getsourcefile
-from os.path import dirname
-modelsDic = dirname(dirname(getsourcefile(lambda:0))) + "/models"
-
 # from sklearn.metrics import accuracy_score, classification_report, confusion_matrix, ConfusionMatrixDisplay
 
 def psd_computation_CSP(signal, fs, flip=False):
@@ -169,7 +163,7 @@ class CSPBox(OVBox):
                 X_ML = np.array([X_ML], dtype=object)
                 X_ML = np.transpose(X_ML, (1, 2, 0))
 
-                with open(f"{modelsDic}/W_CSP.pkl", 'rb') as f:
+                with open(f"models/W_CSP.pkl", 'rb') as f:
                     W = pickle.load(f)[0]
 
                 X_ML_CSP = apply_mix_CSP(W,X_ML)
@@ -177,10 +171,10 @@ class CSPBox(OVBox):
                 ML_features= extract_features_CSP(X_ML_CSP_PSD, X_ML_CSP, [0, -2],freqs)
                 model = 2
                 if model == 3:
-                    with open(f"{modelsDic}/Physionet_3_class_best.pkl", 'rb') as f:
+                    with open(f"models/Physionet_3_class_best.pkl", 'rb') as f:
                         loaded_model = pickle.load(f)
                 else:   
-                    with open(f"{modelsDic}/Physionet_2_class_best.pkl", 'rb') as f:
+                    with open(f"models/Physionet_2_class_best.pkl", 'rb') as f:
                         loaded_model = pickle.load(f)
 
                 # probabilities = [left, right, ~nothing]
