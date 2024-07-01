@@ -6,7 +6,7 @@ This file contains details on the implementation of an emotion classification sy
 
 This directory contains both the Python notebooks used to construct the data models and the Python files that connect the OpenVIBE functionality with the game modification.
 
-### Models
+## Models
 
 Folder: `models`  
 Contains all models used in this part of the project.
