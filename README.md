@@ -14,8 +14,8 @@ For a full overview of the project the following diagram may be of use:
 
 ![](docs/Overview.svg)
 
-#### Stimuli and headset
-The stimuli in this project are your emotions and (imaginary) movement by your left and right hand. The brain signals are measured using the AntNeuro headset (8 channel eego), providing a good node placement for our application. Some gel needs to be applied to the nodes for better signal quality.
+#### Brain signals and headset
+The brain activity of interest in this project are your emotions and (imaginary) movement by your left and right hand. The brain signals are measured using the AntNeuro headset (8 channel eego), providing a good node placement for our application. Some gel needs to be applied to the nodes for better signal quality.
 
 #### Data processing
 The signals obtained from the headset are perturbed by noise due to various effects, such as powerline noise, movement artefacts and other brain activity. So data needs to be processed with this in mind. Depending on what we want to see from the data, different classifying models were built. For more details on the imaginary movement models, see [here](<docs/Imaginary Movement.md>). Two were developed, a Machine Learning model using a Common Spatial Pattern (CSP) filter and a Deep Learning model. The CSP model was eventually selected for use in the project video due to its slightly higher accuracy but could be switched for the Deep Learning model without too much trouble. For classifying emotions, only a Deep Learning model was developed, more details to be found [here](docs/Emotions.md).
