@@ -48,7 +48,7 @@ We used the data from runs 4, 8, and 12. Our different classification classes ar
 
 
 ## Preprocessing
-As the raw EEG data may contain drift, high frequency noise and/or powerline noise, the EEG data is first bandpass filtered using the cut-off frequencies 0.5 Hz and 40 Hz. Higher frequency information removal from the signal is no issue here, as we're mainly interested in the 8-30 Hz frequency range where signals from the motor cortex are found. After this, the EEG data is rereferenced using average rereferencing, as this is considered to be beneficial for EEG classification tasks in general. In a last step, the data is epoched into 2 second windows with a given label. This data is then transfered to any of our model pipelines discussed below.
+As the raw EEG data may contain drift, high frequency noise and/or powerline noise, the EEG data is first band-pass filtered using the cut-off frequencies 0.5 Hz and 40 Hz. Higher frequency information removal from the signal is no issue here, as we're mainly interested in the 8-30 Hz frequency range where signals from the motor cortex are found. After this, the EEG data is rereferenced using common average rereferencing, as this is considered to be beneficial for EEG classification tasks in general. In a last step, the data is epoched into 2 second windows with a given label. This data is then passed on to any of our model pipelines discussed below.
 
 
 ## Machine learning model
