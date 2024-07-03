@@ -62,8 +62,7 @@ For data from the PhysioNet MI dataset, containing 64 channels, this strategy re
 In the case an Ant-Neuro headset is used, however, comprising only 8 channels, the performance drops to 68%.
 
 
-The fact that this pipeline contains a subject-specific component, the CSP filter, is both a blessing and a curse. On the one hand, it enhances performance, but on the other hand, it requires of calibration data for each new subject trying out the system. This calibration data can for example be acquired through the use of passive movements, where another person moves the limbs of the person of interest to simulate IM EEG data.
-
+The fact that this pipeline contains a subject-specific component, the CSP filter, is both a blessing and a curse. On the one hand, it enhances performance, but on the other hand, it requires of calibration data for each new subject trying out the system. This calibration data can for example be acquired by the subject executing cued performed or imagined movement. 
 
 ## Decoder 2: Deep learning
 In the deep learning pipeline, two deep learning models were considered, both of which are transformers. Our first transformer was based on the following non-academic [github repository](https://github.com/reshalfahsi/eeg-motor-imagery-classification/tree/master). Our second transformer was based on the model presented in the following [academic paper](https://ieeexplore.ieee.org/document/9991178). As this second model outperformed the first, this was also chosen as the model used in our final deep learning-based classification pipeline.
