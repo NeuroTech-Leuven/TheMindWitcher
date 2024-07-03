@@ -56,7 +56,7 @@ In the machine learning pipeline, three pipeline components were designed to wor
 
 ![Slide5](https://github.com/NeuroTech-Leuven/TheMindWitcher/assets/141845184/5f90df8b-c703-4ca5-b6c2-6dbb8e38acaa)
 
-In the case a BCI2000 EEG system is used, comprising 64 channels, this strategy results in a classification performance with an f1 score of 84%, which is generally considered to be quite good for a multi-subject EEG application.
+For data from the PhysioNet MI dataset, containing 64 channels, this strategy results in a classification performance with an f1 score of 84%, which is generally considered to be quite good for a multi-subject EEG application.
 
 
 In the case an Ant-Neuro headset is used, however, comprising only 8 channels, the performance drops to 68%.
