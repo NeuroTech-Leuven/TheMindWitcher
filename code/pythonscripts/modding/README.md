@@ -3,9 +3,9 @@ This document explains the decision process behind our choices regarding modifyi
 
 ## Choice of game
 To link a neuro-interface with playing a game, there are several things to keep in mind:
-1. Time sensitivity. A game with time sensitive inputs, like Mario Kart, does not work for this project. We need data from at least a few continuous seconds to be able to make an informed decision.
-2. Error impact. When playing the game, a wrong decision should not impact your enjoyability of the game too much.
-3. Modding availability. We need to be able to control the game without learning a new coding language or modifying source files.
+1. Time sensitivity: A game with time sensitive inputs, like Mario Kart, does not work for this project. We need data from at least a few continuous seconds to be able to make an informed decision.
+2. Error impact: When playing the game, a wrong decision should not impact your enjoyability of the game too much.
+3. Modding availability: We need to be able to control the game without learning a new coding language or modifying source files.
 
 A first explored option is a simple game that can be fully controlled with only the two different movement inputs: left and right. Then you would be playing exclusively with your mind and anyone, paralyzed people too, could play the game. However, simple games which could be played with only two controls almost always transgress against one of the above restrictions. For instance, Pong only requires two controls but is time sensitive and making a wrong move in checkers may ruin your chances of winning the game. 
 

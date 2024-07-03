@@ -1,21 +1,12 @@
 # Emotions Classification: A Machine Learning Approach
 
-This file contains details on the implementation of an emotion classification system using EEG (electroencephalography) data. This project aims to recognize four emotions—neutral, happy, sad, and fear—based on real-time EEG signals of the user playing 'The Witcher 3'.
-
-## Files and Structure
-
-This directory contains both the Python notebooks used to construct the data models and the Python files that connect the OpenVIBE functionality with the game modification.
-
-## Models
-
-Folder: `models`  
-Contains all models used in this part of the project.
+This folder and its readme contain details on the implementation of an emotion classification system using EEG (electroencephalography) data. This part of the project aims to recognize four emotions — neutral, happy, sad, and fear — based on real-time EEG signals of the user playing 'The Witcher 3'.
 
 ## Decoder Implementations
 
-To achieve the emotion classification goal, two different decoders were initially considered: the deep learning and the machine learning approaches. However, since we observed the DL model to overfit the training data significantly, we further developed the ML approach as the most viable option for this application.
+To achieve the emotion classification goal, two different decoders were initially considered: a deep learning and a machine learning approach. However, since we observed the DL model to overfit the training data significantly, we further developed the ML approach as the most viable option for this application.
 
-To train the model, we used a private dataset, SEED IV, with recordings made by the BCMI laboratory. Once the model was pre-trained, it was "plug and play" ready. The ML model will be further discussed below.
+To train the model, we used a private dataset, SEED IV, with recordings made by the BCMI laboratory. Once the model was pre-trained, it could be used in a "plug-and-play" manner. The model will be further discussed below.
 
 # Dataset
 
@@ -44,7 +35,7 @@ As the raw EEG data may contain drift, high-frequency noise, and/or powerline no
 
 ## Machine Learning Decoder
 
-In the machine learning pipeline, components were designed to work together meticulously. The feature extraction step takes place, where Power Spectral Density (PSD) features and Differential Entropy features were computed over 8 channels and across 5 frequency bands. The frequency bands are as follows: `bands = ['Delta', 'Theta', 'Alpha', 'Sigma', 'Beta']`.
+In the used machine learning pipeline, components were designed to work together meticulously. The feature extraction step takes place, where Power Spectral Density (PSD) features and Differential Entropy features were computed over 8 channels and across 5 frequency bands. The frequency bands are as follows: `bands = ['Delta', 'Theta', 'Alpha', 'Sigma', 'Beta']`.
 
 In the last step, a gradient-boosted classifier with grid search is trained on all the subjects' epochs' extracted features.
 
