@@ -16,7 +16,7 @@ Contains all functionality to train the CSP model. To do this, simply run the fi
 In order to achieve the imagined movement (IM) detection and classification goal, different models were trained using a public dataset. Once pre-trained, the models can then be finetuned for new hardware. In total, two pipelines are foreseen for the IM classification task; a machine learning pipeline and a deep learning pipeline. These models will be further discussed below.
 
 
-## Used dataset
+## Dataset
 The public dataset that was used to pre-train our models is the [Physionet dataset](https://physionet.org/content/eegmmidb/1.0.0/). This dataset consists of over 1500 one- and two-minute EEG recordings, sampled at 160 Hz, obtained from 109 volunteers. In summary, the experimental runs were:
 - Run 1: Baseline, eyes open
 - Run 2: Baseline, eyes closed
@@ -47,7 +47,7 @@ Each run contains annotations, with annotation including one of three codes of e
 We used the data from runs 4, 8, and 12. Our different classification classes are thus rest, imagined opening or closing of the left fist, and imagined opening or closing of the right fist.
 
 
-## Used preprocessing
+## Preprocessing
 As the raw EEG data may contain drift, high frequency noise and/or powerline noise, the EEG data is first bandpass filtered using the cut-off frequencies 0.5 Hz and 40 Hz. Higher frequency information removal from the signal is no issue here, as we're mainly interested in the 8-30 Hz frequency range where signals from the motor cortex are found. After this, the EEG data is rereferenced using average rereferencing, as this is considered to be beneficial for EEG classification tasks in general. In a last step, the data is epoched into 2 second windows with a given label. This data is then transfered to any of our model pipelines discussed below.
 
 
