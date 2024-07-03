@@ -10,6 +10,9 @@ From beginning to end, the Mindwitcher project focuses on utilizing EEG signals 
 1. **Spell Casting and Horse calling**: EEG signals related to movement and imagined movement are used to call for the player's horse and cast spells within the game.
 2. **Emotion-based Weather Modification**: EEG headset related to the emotions from the player are used to dynamically modify the weather conditions within the game environment.
 
+The proposed EEG solutions are either "plug-and-play" ready, or require very
+minimal per-session calibration to maximize user experience.
+
 For a full overview of the project the following diagram may be of use:
 
 ![](docs/Overview.svg)
