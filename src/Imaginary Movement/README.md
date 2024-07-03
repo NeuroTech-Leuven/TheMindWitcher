@@ -51,8 +51,8 @@ We used the data from runs 4, 8, and 12. Our different classification classes ar
 As the raw EEG data may contain drift, high frequency noise and/or powerline noise, the EEG data is first band-pass filtered using the cut-off frequencies 0.5 Hz and 40 Hz. Higher frequency information removal from the signal is no issue here, as we're mainly interested in the 8-30 Hz frequency range where signals from the motor cortex are found. After this, the EEG data is rereferenced using common average rereferencing, as this is considered to be beneficial for EEG classification tasks in general. In a last step, the data is epoched into 2 second windows with a given label. This data is then passed on to any of our model pipelines discussed below.
 
 
-## Machine learning model
-In the machine learning pipeline, three pipeline components were designed to work together meticulously. First, a Common Spatial Pattern (CSP) filter estimation step takes place for every subject. Here, a spatial filter is estimated in a subject-dependent manner to increase the discriminativity between our two IM classes. In short, this is done through the maximization of a class-variance ratio criterion, but more details and a more in-depth theoretical background can be found in the extensively documented jupyter notebooks. After this, a feature extraction step takes place, where Power Spectral Density (PSD) features and temporal features are calculated for the 8-15 Hz frequency band. In a last step, a gradient boosted classifier is trained on all the subjects' epochs' extracted features.
+## Decoder 1: Machine learning
+In the machine learning pipeline, three pipeline components were designed to work together meticulously. First, a Common Spatial Patterns (CSP) filter estimation step takes place for every subject. Here, a spatial filter is estimated in a subject-dependent manner to increase the discrimination between our two IM classes. In short, this is done through the maximization of a class-variance ratio criterion, but more details and a more in-depth theoretical background can be found in the extensively documented jupyter notebooks. After this, a feature extraction step takes place, where Power Spectral Density (PSD) features and temporal features are calculated for the 8-15 Hz frequency band. In a last step, a gradient boosted classifier is trained on all the subjects' epochs' extracted features.
 
 ![Slide5](https://github.com/NeuroTech-Leuven/TheMindWitcher/assets/141845184/5f90df8b-c703-4ca5-b6c2-6dbb8e38acaa)
 
@@ -65,7 +65,7 @@ In the case an Ant-Neuro headset is used, however, comprising only 8 channels, t
 The fact that this pipeline contains a subject-specific component, the CSP filter, is both a blessing and a curse. On the one hand, it facilitates the obtention of good results, but on the other hand, it does result in the requirement of calibration data for each new subject trying out the system. This calibration data can for example be acquired through the use of passive movements, where another person moves the limbs of the person of interest to simulate IM EEG data.
 
 
-## Deep learning models
+## Decoder 2: Deep learning
 In the deep learning pipeline, two deep learning models were considered, both of which are transformers. Our first transformer was based on the following non-academic [github repository](https://github.com/reshalfahsi/eeg-motor-imagery-classification/tree/master). Our second transformer was based on the model presented in the following [academic paper](https://ieeexplore.ieee.org/document/9991178). As this second model outperformed the first, this was also chosen as the model used in our final deep learning-based classification pipeline.
 
 
