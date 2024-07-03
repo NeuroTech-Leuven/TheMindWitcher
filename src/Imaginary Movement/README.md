@@ -17,7 +17,7 @@ In order to achieve the imagined movement (IM) detection and classification goal
 
 
 ## Dataset
-The public dataset that was used to pre-train our models is the [Physionet dataset](https://physionet.org/content/eegmmidb/1.0.0/). This dataset consists of over 1500 one- and two-minute EEG recordings, sampled at 160 Hz, obtained from 109 volunteers. In summary, the experimental runs were:
+The public dataset that was used to pre-train our models is the [PhysioNet dataset](https://physionet.org/content/eegmmidb/1.0.0/). This dataset consists of over 1500 one- and two-minute EEG recordings, sampled at 160 Hz, obtained from 109 volunteers. In summary, the experimental runs were:
 - Run 1: Baseline, eyes open
 - Run 2: Baseline, eyes closed
 - Run 3: Task 1 (open and close left or right fist)
@@ -77,7 +77,7 @@ The transformer-model, called ComfyNet, is an attention-based network consisting
 It takes the preprocessed data as its input, without further modifications, and returns the probabilities of the input data belonging to our considered classification classes.
 
 
-In the case a BCI2000 EEG system is used, comprising 64 channels, this strategy results in a classification performance with an f1 score of 80%, which is again generally considered to be quite good for a multi-subject EEG application, especially if the pipeline is completely subject-independent, in contrast to the Machine Learning pipeline.
+For the PhysioNet dataset with 64 channels, this strategy results in a classification performance with an f1 score of 80%, which is again generally considered to be quite good for a multi-subject EEG application, especially if the pipeline is completely subject-independent, in contrast to the Machine Learning pipeline.
 
 
 In the case an Ant-Neuro headset is used, however, comprising only 8 channels, the performance drops to 62%.
