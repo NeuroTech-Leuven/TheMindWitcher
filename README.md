@@ -17,20 +17,31 @@ For a full overview of the project the following diagram may be of use:
 
 ![](images/Overview.svg)
 
-#### Brain signals and headset
+#### EEG data acquisition
 The brain signals of interest in this project are your emotions and (imagined) movement by your left and right hand. The brain signals are measured using the AntNeuro headset (8 channel eego), providing a good electrode placement for our application. Some electrolyte gel needs to be applied to the electrodes for better signal quality.
 
 <img src="images/headset.jpeg" width="600">
 
+#### OpenVIBE
+The OpenVIBE files provide the link between this data and the classification decision. They receive the real-time data and apply spectral filters and time epoching. Further processing is done by Python scripts, in which the different data processing models are applied and a classification is made. 
+- For imaginary movement, a decision is made each second based on the data of the past two seconds. 
+- For the emotions, we make a decision every 30 seconds based on data of the most recent five seconds. 
 
 #### Data processing
-The signals obtained from the headset are perturbed by noise due to various effects, such as powerline interference, movement artefacts and other brain activity. Consequently, data needs to be processed with this in mind. Depending on the signal of interest, different classifying models were built. For more details on the imaginary movement models, see [here](<src/Imaginary Movement/README.md>). Two were developed, a Machine Learning model using a Common Spatial Pattern (CSP) filter and a Deep Learning model. The CSP model was eventually selected for use in the project video due to its slightly higher accuracy but could still be switched for the Deep Learning model without too much trouble. For classifying emotions, only a Machine Learning model was developed, more details to be found [here](src/Emotions/README.md).
+The signals obtained from the headset are perturbed by noise due to various effects, such as powerline interference, movement artefacts and other brain activity. Consequently, data needs to be processed with this in mind. For each of the stimuli different models were developed.
+- For classifying __emotions__, only a Machine Learning model was developed, more details to be found [here](src/Emotions/README.md).
+- For more details on the __imaginary movement__ models, see [here](<src/Imaginary Movement/README.md>). Two models were developed:
+    1. A Machine Learning model using a Common Spatial Pattern (CSP) filter
+    2. A Deep Learning model. 
 
-#### OpenVIBE
-The OpenVIBE files provide the link between this data and the classification decision. They receive the real-time data and apply spectral filters and time epoching. Further processing is done by some Python scripts, in which the different models are applied and a classification is made. For imaginary movement, a decision is made each second based on the data of the past two seconds. For the emotions, we make a decision every 30 seconds based on data of the most recent five seconds.  
+The CSP model was eventually selected for use in the project video due to its slightly higher accuracy but could still be switched for the Deep Learning model without too much trouble. 
 
 #### Game modification
-Once the classification is decided, the right action needs to be executed in the game. This is done using keyboard commands, where Python code simulates a key press. From the imagined movement to casting a spell or calling your horse, it is just a matter of pressing the right key that controls that action. Changing the weather is not so straightforward and so we make use of the built-in debug console. More details are available [here](<src/Modding/README.md>).
+Once the classification is decided, the right action needs to be executed in the game. This is done using keyboard commands, where Python code simulates a key press. For the two pipelines there are broadly two categories of actions.
+1. Simple actions: these require just a single key press.
+2. Complex actions: now we need to use the built-in debug console to change the game environment.
+
+More details are available [here](<src/Modding/README.md>).
 
 ## Repository Structure
 The repository is organized into several folders:
