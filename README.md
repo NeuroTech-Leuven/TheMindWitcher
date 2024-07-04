@@ -1,32 +1,32 @@
 # Neurotech Leuven - The Mindwitcher Project
 
 ## Introduction
-Welcome to the repository for the Mindwitcher project, developed by the Team Neurotech Leuven. This project is our submission for the Neurotech X competition 2024, where we present an innovative modification to the popular game *The Witcher 3*. The Mindwitcher project integrates EEG signals to control certain actions within the game, creating a unique gaming experience that merges neuroscience and technology.
+Welcome to the repository for the Mindwitcher project, developed by the Team Neurotech Leuven. This project is our submission for the Neurotech X competition 2024, where we present an innovative modification to the popular game *The Witcher 3*. The Mindwitcher project integrates EEG (electroencephalogram) signals to control certain actions within the game, creating a unique gaming experience that merges neuroscience and technology.
 
 _Here comes the video_
 
 ## Project Overview
-From beginning to end, the Mindwitcher project focuses on utilizing EEG signals to control actions in *The Witcher 3* game. Specifically, we have implemented three main functionalities:
+From beginning to end, the Mindwitcher project focuses on utilizing EEG signals to control actions in *The Witcher 3* game. Specifically, we have implemented two types of functionalities:
 1. **Spell Casting and Horse calling**: EEG signals related to movement and imagined movement are used to call for the player's horse and cast spells within the game.
-2. **Emotion-based Weather Modification**: EEG headset related to the emotions from the player are used to dynamically modify the weather conditions within the game environment.
+2. **Emotion-based Weather Modification**: EEG signals related to the emotions of the player are used to dynamically modify the weather conditions within the game environment.
 
-The proposed EEG solutions are either "plug-and-play" ready, or require very
-minimal per-session calibration to maximize user experience.
+The proposed EEG solutions are either "plug-and-play", or require very
+minimal per-session calibration to maximize accuracy and user experience.
 
 For a full overview of the project the following diagram may be of use:
 
 ![](docs/Overview.svg)
 
 #### Brain signals and headset
-The brain activity of interest in this project are your emotions and (imaginary) movement by your left and right hand. The brain signals are measured using the AntNeuro headset (8 channel eego), providing a good electrode placement for our application. Some electrolyte gel needs to be applied to the electrodes for better signal quality.
+The brain signals of interest in this project are your emotions and (imagined) movement by your left and right hand. The brain signals are measured using the AntNeuro headset (8 channel eego), providing a good electrode placement for our application. Some electrolyte gel needs to be applied to the electrodes for better signal quality.
 
 #### Data processing
-The signals obtained from the headset are perturbed by noise due to various effects, such as powerline interference, movement artefacts and other brain activity. So data needs to be processed with this in mind. Depending on the signal of interest, different classifying models were built. For more details on the imaginary movement models, see [here](<docs/Imaginary Movement.md>). Two were developed, a Machine Learning model using a Common Spatial Pattern (CSP) filter and a Deep Learning model. The CSP model was eventually selected for use in the project video due to its slightly higher accuracy but could be switched for the Deep Learning model without too much trouble. For classifying emotions, only a Deep Learning model was developed, more details to be found [here](docs/Emotions.md).
+The signals obtained from the headset are perturbed by noise due to various effects, such as powerline interference, movement artefacts and other brain activity. Consequently, data needs to be processed with this in mind. Depending on the signal of interest, different classifying models were built. For more details on the imaginary movement models, see [here](<docs/Imaginary Movement.md>). Two were developed, a Machine Learning model using a Common Spatial Pattern (CSP) filter and a Deep Learning model. The CSP model was eventually selected for use in the project video due to its slightly higher accuracy but could still be switched for the Deep Learning model without too much trouble. For classifying emotions, only a Machine Learning model was developed, more details to be found [here](docs/Emotions.md).
 
-The OpenVIBE files provide the link between this data and the classifying decision. It receives the data and applies spectral filters and time epoching. For imaginary movement, a decision is made each second based on the data of the past two seconds. For the emotions, we make a decision every half minute based on data of the five seconds before. Further processing is done by some python scripts, in which the different models are applied and a classification is made. 
+The OpenVIBE files provide the link between this data and the classification decision. They receive the real-time data and apply spectral filters and time epoching. Further processing is done by some python scripts, in which the different models are applied and a classification is made. For imaginary movement, a decision is made each second based on the data of the past two seconds. For the emotions, we make a decision every 30 seconds based on data of the most recent five seconds.  
 
 #### Game modification
-Once the classification is decided, the right action needs to be executed in the game. This is done using keyboard commands, where python code simulates a key press. From the imaginary movement to casting a spell or calling your horse, it is just a matter of pressing the right key that controls that action. Changing the weather is not so straightforward and so we make use of the in-built debug console. More details are available [here](<docs/Game modification.md>).
+Once the classification is decided, the right action needs to be executed in the game. This is done using keyboard commands, where python code simulates a key press. From the imagined movement to casting a spell or calling your horse, it is just a matter of pressing the right key that controls that action. Changing the weather is not so straightforward and so we make use of the built-in debug console. More details are available [here](<docs/Game modification.md>).
 
 ## Repository Structure
 The repository is organized into several folders, each containing specific components of the project:
@@ -45,7 +45,7 @@ Folder: `Code`
 ### 3. Documentation
 Folder: `docs`
 - Extra documentation regarding the different parts of the project. 
-- Driver files to use in installation
+- Driver files to use during installation
 
 ## Installation and Usage
 The project requires a Windows installation to run its two main software components: the game and OpenVIBE, with python code to do all calculations and communication. 
@@ -55,7 +55,7 @@ OpenVIBE requires a specific python version and is not compatible with a virtual
 pip install -r requirements.txt
 ```
 
-With the right version of python installed, now install the latest version of [OpenVIBE](https://openvibe.inria.fr). Next install the game [The Witcher 3](https://www.thewitcher.com/pl/en/witcher3), which only officially runs on Windows. To be able to mod the game, execute
+With the right version of python installed, now install the latest version of [OpenVIBE](https://openvibe.inria.fr). Next, install the game [The Witcher 3](https://www.thewitcher.com/pl/en/witcher3), which only officially runs on Windows. To be able to mod the game, execute
 ```bash
 python setup.py
 ```
