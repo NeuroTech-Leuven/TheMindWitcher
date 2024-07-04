@@ -32,7 +32,7 @@ Differential entropy is a measure derived from information theory that quantifie
 ### Classification
 After feature extraction, a gradient-boosted classifier is trained on the extracted features from all subjects' epochs. Gradient boosting is a powerful ensemble learning technique that builds a strong predictive model by combining multiple weak learners. To optimize the model's performance, a grid search is employed to systematically explore the hyperparameter space and identify the best combination of parameters.
 
-## Results and future plans
+## Results 
 After transitioning to the 8-channel EEG Ant Neuro headset, we achieved a limited model's performance of 66%, as not all channels provide relevant information for accurate classification.  However, if a 64-channel headset were to be used, this accuracy could be further enhanced.
 
 
