@@ -6,7 +6,13 @@ The emotion pipeline aims to recognize four emotions— neutral, happy, sad, and
 
 To achieve the emotion classification goal, two different decorders were initially considered: a deep learning and a machine learning approach. However, since we observed the DL model to overfit the training data significantly, we further developed the ML approach as the most viable option for this application. 
 
-In what follows, the different steps in the emotion pipeline are explained: the preprocessing, the machine learning decoder (including feature extraction and classification) and the pre-training.
+In what follows, the different steps in the emotion pipeline are explained: the pre-training, the preprocessing and machine learning decoder (including feature extraction and classification).
+
+## Pre-training the model
+
+The public dataset [SEED IV dataset](https://bcmi.sjtu.edu.cn/home/seed/seed-iv.html) was used to pre-train our models. Once pre-trained, the model could be used in a "plug-and-play" manner. 
+
+The dataset consists of 15 users' recordings across 3 sessions of 24 trials each. Each of these trials is an EEG recording of a total of 2m50s, sampled at 200 Hz. The dataset includes 6 male subjects and 9 female subjects, each experiencing the four different states of emotions for which we aimed to build the classifier.
 
 ## Preprocessing
 
@@ -25,13 +31,6 @@ Differential entropy is a measure derived from information theory that quantifie
 
 ### Classification
 After feature extraction, a gradient-boosted classifier is trained on the extracted features from all subjects' epochs. Gradient boosting is a powerful ensemble learning technique that builds a strong predictive model by combining multiple weak learners. To optimize the model's performance, a grid search is employed to systematically explore the hyperparameter space and identify the best combination of parameters.
-
-## Pre-training the model
-
-The public dataset [SEED IV dataset](https://bcmi.sjtu.edu.cn/home/seed/seed-iv.html) was used to pre-train our models. Once pre-trained, the model could be used in a "plug-and-play" manner. 
-
-The dataset consists of 15 users' recordings across 3 sessions of 24 trials each. Each of these trials is an EEG recording of a total of 2m50s, sampled at 200 Hz. The dataset includes 6 male subjects and 9 female subjects, each experiencing the four different states of emotions for which we aimed to build the classifier.
-
 
 ## Results and future plans
 After transitioning to the 8-channel EEG Ant Neuro headset, we achieved a limited model's performance of 66%, as not all channels provide relevant information for accurate classification.  However, if a 64-channel headset were to be used, this accuracy could be further enhanced.
