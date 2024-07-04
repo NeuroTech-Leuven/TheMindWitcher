@@ -8,7 +8,7 @@ To achieve the emotion classification goal, two different decorders were initial
 
 In what follows, the different steps in the emotion pipeline are explained: the pre-training, the preprocessing and machine learning decoder (including feature extraction and classification).
 
-## Pre-training the model
+## Dataset
 
 The public dataset [SEED IV dataset](https://bcmi.sjtu.edu.cn/home/seed/seed-iv.html) was used to pre-train our models. Once pre-trained, the model could be used in a "plug-and-play" manner. 
 
