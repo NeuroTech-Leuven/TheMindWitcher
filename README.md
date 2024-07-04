@@ -15,21 +15,21 @@ minimal per-session calibration to maximize accuracy and user experience.
 
 For a full overview of the project the following diagram may be of use:
 
-![](docs/Overview.svg)
+![](images/Overview.svg)
 
 #### Brain signals and headset
 The brain signals of interest in this project are your emotions and (imagined) movement by your left and right hand. The brain signals are measured using the AntNeuro headset (8 channel eego), providing a good electrode placement for our application. Some electrolyte gel needs to be applied to the electrodes for better signal quality.
-![headset](https://github.com/NeuroTech-Leuven/TheMindWitcher/assets/141845184/a9dc2b61-c06c-4ee1-b731-30c1f4e8d20a)
+![headset](images/headset.jpeg)
 
 
 #### Data processing
-The signals obtained from the headset are perturbed by noise due to various effects, such as powerline interference, movement artefacts and other brain activity. Consequently, data needs to be processed with this in mind. Depending on the signal of interest, different classifying models were built. For more details on the imaginary movement models, see [here](<docs/Imaginary Movement.md>). Two were developed, a Machine Learning model using a Common Spatial Pattern (CSP) filter and a Deep Learning model. The CSP model was eventually selected for use in the project video due to its slightly higher accuracy but could still be switched for the Deep Learning model without too much trouble. For classifying emotions, only a Machine Learning model was developed, more details to be found [here](docs/Emotions.md).
+The signals obtained from the headset are perturbed by noise due to various effects, such as powerline interference, movement artefacts and other brain activity. Consequently, data needs to be processed with this in mind. Depending on the signal of interest, different classifying models were built. For more details on the imaginary movement models, see [here](<src/Imaginary Movement/README.md>). Two were developed, a Machine Learning model using a Common Spatial Pattern (CSP) filter and a Deep Learning model. The CSP model was eventually selected for use in the project video due to its slightly higher accuracy but could still be switched for the Deep Learning model without too much trouble. For classifying emotions, only a Machine Learning model was developed, more details to be found [here](src/Emotions/README.md).
 
 #### OpenVIBE
 The OpenVIBE files provide the link between this data and the classification decision. They receive the real-time data and apply spectral filters and time epoching. Further processing is done by some Python scripts, in which the different models are applied and a classification is made. For imaginary movement, a decision is made each second based on the data of the past two seconds. For the emotions, we make a decision every 30 seconds based on data of the most recent five seconds.  
 
 #### Game modification
-Once the classification is decided, the right action needs to be executed in the game. This is done using keyboard commands, where Python code simulates a key press. From the imagined movement to casting a spell or calling your horse, it is just a matter of pressing the right key that controls that action. Changing the weather is not so straightforward and so we make use of the built-in debug console. More details are available [here](<docs/Game modification.md>).
+Once the classification is decided, the right action needs to be executed in the game. This is done using keyboard commands, where Python code simulates a key press. From the imagined movement to casting a spell or calling your horse, it is just a matter of pressing the right key that controls that action. Changing the weather is not so straightforward and so we make use of the built-in debug console. More details are available [here](<src/Modding/README.md>).
 
 ## Repository Structure
 The repository is organized into several folders, each containing specific components of the project:
@@ -78,9 +78,9 @@ Now all that's left to do is run the `main.py` file. It opens the OpenVIBE Acqui
 
 The Neurotech Leuven team for the Mindwitcher project consists of the following people, listed alphabetically:
 - Wout De Swaef
-- Thant Muang
 - Sofia Gonzalez Mezquita
 - Tim Lauwers
+- Thant Muang
 - Orestis Lomis
 - Mathijs Vanhaverbeke
 - Lars Van Noten
