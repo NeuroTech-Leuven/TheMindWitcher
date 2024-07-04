@@ -10,17 +10,20 @@ From beginning to end, the Mindwitcher project focuses on utilizing EEG signals 
 1. **Spell Casting and Horse calling**: EEG signals related to movement and imagined movement are used to call for the player's horse and cast spells within the game.
 2. **Emotion-based Weather Modification**: EEG headset related to the emotions from the player are used to dynamically modify the weather conditions within the game environment.
 
+The proposed EEG solutions are either "plug-and-play" ready, or require very
+minimal per-session calibration to maximize user experience.
+
 For a full overview of the project the following diagram may be of use:
 
 ![](docs/Overview.svg)
 
-#### Stimuli and headset
-The stimuli in this project are your emotions and (imaginary) movement by your left and right hand. The brain signals are measured using the AntNeuro headset (8 channel eego), providing a good node placement for our application. Some gel needs to be applied to the nodes for better signal quality.
+#### Brain signals and headset
+The brain activity of interest in this project are your emotions and (imaginary) movement by your left and right hand. The brain signals are measured using the AntNeuro headset (8 channel eego), providing a good electrode placement for our application. Some electrolyte gel needs to be applied to the electrodes for better signal quality.
 
 #### Data processing
-The signals obtained from the headset are perturbed by noise due to various effects, such as powerline noise, movement artefacts and other brain activity. So data needs to be processed with this in mind. Depending on what we want to see from the data, different classifying models were built. For more details on the imaginary movement models, see [here](<docs/Imaginary Movement.md>). Two were developed, a Machine Learning model using a Common Spatial Pattern (CSP) filter and a Deep Learning model. The CSP model was eventually selected for use in the project video due to its slightly higher accuracy but could be switched for the Deep Learning model without too much trouble. For classifying emotions, only a Deep Learning model was developed, more details to be found [here](docs/Emotions.md).
+The signals obtained from the headset are perturbed by noise due to various effects, such as powerline interference, movement artefacts and other brain activity. So data needs to be processed with this in mind. Depending on the signal of interest, different classifying models were built. For more details on the imaginary movement models, see [here](<docs/Imaginary Movement.md>). Two were developed, a Machine Learning model using a Common Spatial Pattern (CSP) filter and a Deep Learning model. The CSP model was eventually selected for use in the project video due to its slightly higher accuracy but could be switched for the Deep Learning model without too much trouble. For classifying emotions, only a Deep Learning model was developed, more details to be found [here](docs/Emotions.md).
 
-The OpenVIBE files provide the link between this data and the classifying decision. It receives the data and applies temporal filters and time epoching. For imaginary movement, a decision is made each second based on the data of the past two seconds. For the emotions, we make a decision every half minute based on data of the five seconds before. Further processing is done by some python scripts, in which the different models are applied and a classification is made. 
+The OpenVIBE files provide the link between this data and the classifying decision. It receives the data and applies spectral filters and time epoching. For imaginary movement, a decision is made each second based on the data of the past two seconds. For the emotions, we make a decision every half minute based on data of the five seconds before. Further processing is done by some python scripts, in which the different models are applied and a classification is made. 
 
 #### Game modification
 Once the classification is decided, the right action needs to be executed in the game. This is done using keyboard commands, where python code simulates a key press. From the imaginary movement to casting a spell or calling your horse, it is just a matter of pressing the right key that controls that action. Changing the weather is not so straightforward and so we make use of the in-built debug console. More details are available [here](<docs/Game modification.md>).
