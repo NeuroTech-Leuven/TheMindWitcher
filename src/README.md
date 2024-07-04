@@ -4,12 +4,15 @@ The source directory is organized into several folders, each each related to spe
 ### 1. Emotion
 
 Folder: `Emotions`. 
-Contains all Python files pertaining to the emotions pipeline.
+Contains all files pertaining to the emotions pipeline. These files and directories are:
+- A python file which handles the link between data acquisition in OpenVIBE and modifying the game.
+- The notebook which details the chosen model, this model is trained and the determined parameters are saved.
+- The directory `models`, in which model parameters are stored.
 
 ### 2. Imaginary Movement
 
 Folder: `Imaginary Movement`. 
-Contains all Python (and some extra .xml) files pertaining to the imagined movement pipeline.
+Contains all files pertaining to the imagined movement pipeline. It has the same type of files as detailed [above](#1-emotion), for the two different models.
 
 ### 3. Game Modification
 Folder: `Modding`. 
