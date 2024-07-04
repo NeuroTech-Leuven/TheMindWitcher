@@ -6,7 +6,7 @@ The emotion pipeline aims to recognize four emotions— neutral, happy, sad, and
 
 To achieve the emotion classification goal, two different decorders were initially considered: a deep learning and a machine learning approach. However, since we observed the DL model to overfit the training data significantly, we further developed the ML approach as the most viable option for this application. 
 
-In what follows, the different steps in the emotion pipeline are explained: the pre-training, the preprocessing and machine learning decoder (including feature extraction and classification).
+In what follows, the different steps in the emotion pipeline are explained: the dataset used for pre-training, the preprocessing and machine learning decoder (including feature extraction and classification).
 
 ## Dataset
 
