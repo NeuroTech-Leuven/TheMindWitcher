@@ -1,6 +1,8 @@
 # Emotions Classification: A Machine Learning Approach
 
-This folder and its readme  contain the details on the implementation of an emotion classification system using EEG (electroencephalography) data. This part of the project aims to recognize four emotions— neutral, happy, sad, and fear — based on real-time EEG signals of the user playing 'The Witcher 3'.
+This folder and its readme  contain the details on the implementation of an emotion classification system using EEG (electroencephalography) data. The subfolder `models` contains all the models used in this part of the project.
+
+The emotion pipeline aims to recognize four emotions— neutral, happy, sad, and fear — based on real-time EEG signals of the user playing 'The Witcher 3'.
 
 To achieve the emotion classification goal, two different decorders were initially considered: a deep learning and a machine learning approach. However, since we observed the DL model to overfit the training data significantly, we further developed the ML approach as the most viable option for this application. 
 
