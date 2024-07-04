@@ -1,51 +1,38 @@
 # Emotions Classification: A Machine Learning Approach
 
-This file contains details on the implementation of an emotion classification system using EEG (electroencephalography) data. This project aims to recognize four emotions—neutral, happy, sad, and fear—based on real-time EEG signals of the user playing 'The Witcher 3'.
+This folder and its readme  contain the details on the implementation of an emotion classification system using EEG (electroencephalography) data. This part of the project aims to recognize four emotions— neutral, happy, sad, and fear — based on real-time EEG signals of the user playing 'The Witcher 3'.
 
-## Files and Structure
+To achieve the emotion classification goal, two different decorders were initially considered: a deep learning and a machine learning approach. However, since we observed the DL model to overfit the training data significantly, we further developed the ML approach as the most viable option for this application. 
 
-This directory contains both the Python notebooks used to construct the data models and the Python files that connect the OpenVIBE functionality with the game modification.
-
-## Models
-
-Folder: `models`  
-Contains all models used in this part of the project.
-
-## Decoder Implementations
-
-To achieve the emotion classification goal, two different decoders were initially considered: the deep learning and the machine learning approaches. However, since we observed the DL model to overfit the training data significantly, we further developed the ML approach as the most viable option for this application.
-
-To train the model, we used a private dataset, SEED IV, with recordings made by the BCMI laboratory. Once the model was pre-trained, it was "plug and play" ready. The ML model will be further discussed below.
-
-# Dataset
-
-The public dataset that was used to pre-train our models is the [SEED IV dataset](https://bcmi.sjtu.edu.cn/home/seed/seed-iv.html). This dataset consists of 15 users' recordings across 3 sessions of 24 trials each. Each of these trials is an EEG recording of a total of 2 minutes 50 seconds, sampled at 200 Hz. 
-The dataset contains the following split:
-
-- male_users: 1, 2, 6, 7, 12, 13
-- female_users: 3, 4, 5, 8, 9, 10, 11, 14, 15
-
-Labels:  
-The labels of the three sessions for the same subjects are as follows:
-
-- session1_label = [1, 2, 3, 0, 2, 0, 0, 1, 0, 1, 2, 1, 1, 1, 2, 3, 2, 2, 3, 3, 0, 3, 0, 3];
-- session2_label = [2, 1, 3, 0, 0, 2, 0, 2, 3, 3, 2, 3, 2, 0, 1, 1, 2, 1, 0, 3, 0, 1, 3, 1];
-- session3_label = [1, 2, 2, 1, 3, 3, 3, 1, 1, 2, 1, 0, 2, 3, 3, 0, 2, 3, 0, 0, 2, 0, 1, 0];
-
-Each trial label corresponds to: 
-- 0: neutral
-- 1: sad 
-- 2: fear
-- 3: happy
+In what follows, the different steps in the emotion pipeline are explained: the preprocessing, the machine learning decoder (including feature extraction and classification) and the pre-training.
 
 ## Preprocessing
 
 As the raw EEG data may contain drift, high-frequency noise, and/or powerline noise, the EEG data is first bandpass filtered using the cut-off frequencies 0.5 Hz and 40 Hz. After this, the EEG data is epoched into 4-second windows with a 50% overlap. This data is then transferred to the model pipeline discussed below.
 
 ## Machine Learning Decoder
+Following preprocessing and preceding classification, the relevant features are extracted to facilitate emotion recognition from EEG data. This project employs Power Spectral Density (PSD) features and Differential Entropy features, which are computed across 8 EEG channels and 5 frequency bands: Delta, Theta, Alpha, Sigma, and Beta.
 
-In the machine learning pipeline, components were designed to work together meticulously. The feature extraction step takes place, where Power Spectral Density (PSD) features and Differential Entropy features were computed over 8 channels and across 5 frequency bands. The frequency bands are as follows: `bands = ['Delta', 'Theta', 'Alpha', 'Sigma', 'Beta']`.
+### Feature extraction
+Power Spectral Density (PSD): PSD measures the power distribution of the EEG signal as a function of frequency. It provides insights into the energy present in different frequency bands, which is crucial for understanding the underlying neural activity associated with different emotional states.
 
-In the last step, a gradient-boosted classifier with grid search is trained on all the subjects' epochs' extracted features.
+Differential Entropy: Differential entropy is a measure derived from information theory that quantifies the complexity or unpredictability of the EEG signal. It provides a robust measure of signal variability and is particularly useful in characterizing the non-linear dynamics of brain activity. Higher entropy values indicate more irregular and complex brain activity, which can be linked to specific emotional states.
 
-Since the 8-channel EEG Ant Neuro headset is used, the performance of the model is 66%, because these channels do not all contain relevant information to classify the data. However, if a 64-channel headset were to be used, this accuracy could be further enhanced.
+### Classification
+After feature extraction, a gradient-boosted classifier is trained on the extracted features from all subjects' epochs. Gradient boosting is a powerful ensemble learning technique that builds a strong predictive model by combining multiple weak learners. To optimize the model's performance, a grid search is employed to systematically explore the hyperparameter space and identify the best combination of parameters.
+
+## Pre-training the model
+
+The public dataset [SEED IV dataset](https://bcmi.sjtu.edu.cn/home/seed/seed-iv.html) was used to pre-train our models. Once pre-trained, the model could be used in a "plug-and-play" manner. 
+
+The dataset consists of 15 users' recordings across 3 sessions of 24 trials each. Each of these trials is an EEG recording of a total of 2m50s, sampled at 200 Hz. The dataset includes 6 male subjects and 9 female subjects, each experiencing the four different states of emotions for which we aimed to build the classifier.
+
+
+## Results and future plans
+After transitioning to the 8-channel EEG Ant Neuro headset, we achieved a limited model's performance of 66%, as not all channels provide relevant information for accurate classification.  However, if a 64-channel headset were to be used, this accuracy could be further enhanced.
+
+
+
+
+
+
