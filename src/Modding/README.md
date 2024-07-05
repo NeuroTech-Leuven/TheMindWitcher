@@ -4,9 +4,9 @@ This document explains the decision process behind our choices regarding modifyi
 
 ## Three points of consideration
 To link a neuro-interface with playing a game, there are several things to keep in mind:
-1. __Time sensitivity__: a Brain Computer Interface requires several seconds of data to be able to make an informed decision. This fact excludes time sensitive games, such as Mario Kart.
-2. __Error impact__: neurotech applications are never 100% accurate, therefore games where every move has a high impact are excluded.
-3. __Modding availability__: we need to be able to control the game without learning a new coding language or modifying source files.
+1. __Time sensitivity__: Brain Computer Interfaces require several seconds of data to be able to make an informed decision. This fact excludes time sensitive games, such as Mario Kart.
+2. __Error impact__: Neurotech applications are never 100% accurate, therefore games where every move has a high impact are excluded.
+3. __Ease of implementation__: Our chosen game should offer sufficient functionality for us to modify, we need to be able to control the game without learning a new coding language or modifying source files.
 
 Out of all possible games there was one extra soft requirement we looked after. We sought to control a magical action, as linking those to a brain command amplifies the magical feeling. 
 
@@ -18,7 +18,7 @@ In the end, we chose 'The Witcher 3', which satisfies the three points of consid
 The playable character Geralt can execute 'signs' as magical action and so the game also suits the extra requirement. Moreover, 'The Witcher 3' is a well-known, highly awarded game with lots of online support if anyone would need it.
 
 ## Virtual keyboard to control the game
-To execute in-game actions, virtual keyboard presses are used. This is done with Python using the [keyboard package](https://pypi.org/project/keyboard/). It features hotkey support (e.g. Ctrl+V) and "maps keys as they actually are in your layout, with full internationalization support". This is important to support different keyboard layouts. As Neurotech Leuven is located in Belgium, we support AZERTY keyboards next to the internationally accepted QWERTY. An alternative to this Python package is [pynput](https://pypi.org/project/pynput/), but they have no clear features mentioned so the keyboard package is favored.
+To execute in-game actions, virtual keyboard presses are used. This is done in Python using the [keyboard package](https://pypi.org/project/keyboard/). It features hotkey support (e.g., Ctrl+V) and "maps keys as they actually are in your layout, with full internationalization support". This is important to support different keyboard layouts. As Neurotech Leuven is located in Belgium, we support AZERTY keyboards next to the internationally accepted QWERTY. An alternative to this Python package is [pynput](https://pypi.org/project/pynput/), but they have no clear features mentioned so the keyboard package is favored.
 
 There are two points of attention:
 1. __Focus__:The game tab must be in focus as to receive the keyboard presses.
