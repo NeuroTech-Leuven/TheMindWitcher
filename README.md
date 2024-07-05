@@ -1,7 +1,7 @@
 # Neurotech Leuven - The Mindwitcher Project
 
 ## Introduction
-Welcome to the repository for the Mindwitcher project, developed by the Team Neurotech Leuven. This project is our submission for the Neurotech X competition 2024, where we present an innovative modification to the popular game *The Witcher 3*. The Mindwitcher project integrates EEG (electroencephalogram) signals to control certain actions within the game, creating a unique gaming experience that merges neuroscience and technology.
+Welcome to the repository for the Mindwitcher project, developed by the Team Neurotech Leuven. This project is our submission for the Neurotech X competition 2024, where we present an innovative modification to the popular game *The Witcher 3*. The Mindwitcher project uses EEG (electroencephalogram) signals to control certain actions within the game, creating a unique gaming experience that merges neuroscience and technology.
 
 _Here comes the video_
 
@@ -15,17 +15,17 @@ minimal per-session calibration to maximize accuracy and user experience.
 
 For a full overview of the project the following diagram may be of use:
 
-![](images/Overview.svg)
+![Overview of how the MindWitcher project is built up](images/Overview.svg)
 
 #### EEG data acquisition
-The brain signals of interest in this project are your emotions and (imagined) movement by your left and right hand. The brain signals are measured using the AntNeuro headset (8 channel eego), providing a good electrode placement for our application. Some electrolyte gel needs to be applied to the electrodes for better signal quality.
+The brain signals of interest in this project are your emotions and (imagined) movement by your left and right hand. The brain signals are measured using the AntNeuro headset (8 channel eego). This headset is easy to use and provides a good electrode placement for our application. Some electrolyte gel needs to be applied to the electrodes for better signal quality.
 
 <img src="images/headset.jpeg" width="600">
 
-#### OpenVIBE
-The OpenVIBE files provide the link between this data and the classification decision. They receive the real-time data and apply spectral filters and time epoching. Further processing is done by Python scripts, in which the different data processing models are applied and a classification is made. 
-- For imaginary movement, a decision is made each second based on the data of the past two seconds. 
-- For the emotions, we make a decision every 30 seconds based on data of the most recent five seconds. 
+#### OpenViBE
+At the heart of the Mindwitcher is [OpenViBE](https://openvibe.inria.fr/), developed to easily create brain-computer interfaces. OpenViBE provides the link between the EEG data and the classification decision. It receives the real-time data and applies spectral filters and time epoching. Further processing is then done by Python scripts, in which the different data processing models are applied and a classification is made. 
+- For **imaginary movement**, a decision is made each second based on the data of the past two seconds. 
+- For **the emotions**, we make a decision every 30 seconds based on data of the most recent five seconds. 
 
 #### Data processing
 The signals obtained from the headset are perturbed by noise due to various effects, such as powerline interference, movement artefacts and other brain activity. Consequently, data needs to be processed with this in mind. For each of the stimuli different models were developed.
@@ -38,10 +38,10 @@ The CSP model was eventually selected for use in the project video due to its sl
 
 #### Game modification
 Once the classification is decided, the right action needs to be executed in the game. This is done using keyboard commands, where Python code simulates a key press. For the two pipelines there are broadly two categories of actions.
-1. Simple actions: these require just a single key press.
-2. Complex actions: now we need to use the built-in debug console to change the game environment.
+1. **Simple actions**: these require just a single key press.
+2. **Complex actions**: now we need to use the built-in debug console to change the game environment.
 
-More details are available [here](<src/Modding/README.md>).
+More details on the game modification are available [here](<src/Modding/README.md>).
 
 ## Repository Structure
 The repository is organized into several folders:
@@ -56,14 +56,14 @@ Folder: `images`. All images used in documenting this repository.
 Folder: `src`. All code necessary to execute the full project pipeline. More info is to be found in [this file](src/README.md).
 
 ## Installation and Usage
-The project requires a Windows installation to run its two main software components: the game and OpenVIBE, with Python code to do all calculations and communication. 
+The project requires a Windows installation to run its two main software components: the game and OpenViBE, with Python code to do all calculations and communication. 
 
 OpenVIBE requires a specific python version and is not compatible with a virtual environment. To be able to run all code, install [Python version 3.10.11](https://www.python.org/downloads/release/python-31011/) and edit your Windows environment variables to put this installation on top of your PATH. All dependencies for the project can then be installed with
 ```bash
 pip install -r requirements.txt
 ```
 
-With the right version of Python installed, now install the latest version of [OpenVIBE](https://openvibe.inria.fr). 
+With the right version of Python installed, now install the latest version of [OpenViBE](https://openvibe.inria.fr). 
 
 After installing OpenVIBE, we can start modding the game. For this, first install [The Witcher 3](https://www.thewitcher.com/pl/en/witcher3), which only officially runs on Windows. Complete the installation and execute our helper script:
 ```bash
@@ -75,7 +75,7 @@ To properly use the AntNeuro headset, the right drivers need to be installed. Fi
 
 <img src="images/OpenVIBE Acquisition Server setup.png" width="600">
 
-Now all that's left to do is run the `main.py` file. It opens the OpenVIBE Acquisition Server and gets it running. Once that's done, it starts running the model pipelines so just open the game and start playing!
+Now all that's left to do is run the `main.py` file. It opens the OpenViBE Acquisition Server and gets it running. Once that's done, it starts running the model pipelines so just open the game and start playing!
 
 ## Limitations and future plans
 - Despite the impressive potential of our EEG-steered game, the current models face performance challenges primarily due to discrepancies between the training data and the real-time data obtained from our headset (transferring from a 64 channel to 8 channel headset). To address this, our future endeavors will focus on extensive data collection using our own headset, enabling us to train the models with data that closely mirrors actual usage conditions.
