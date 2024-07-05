@@ -4,7 +4,7 @@ This folder and its readme  contain the details on the implementation of an emot
 
 The emotion pipeline aims to recognize four emotions— neutral, happy, sad, and fear — based on real-time EEG signals of the user playing 'The Witcher 3'.
 
-To achieve the emotion classification goal, two different decorders were initially considered: a deep learning and a machine learning approach. However, since we observed the DL model to overfit the training data significantly, we further developed the ML approach as the most viable option for this application. 
+To achieve the emotion classification goal, two different decorders were initially considered: a deep learning (DL) and a machine learning (ML) approach. However, since we observed the DL model to overfit the training data significantly, we further developed the ML approach as the most viable option for this application. 
 
 In what follows, the different steps in the emotion pipeline are explained: the dataset used for pre-training, the preprocessing and machine learning decoder (including feature extraction and classification).
 
@@ -16,7 +16,9 @@ The dataset consists of 15 users' recordings across 3 sessions of 24 trials each
 
 ## Preprocessing
 
-As the raw EEG data may contain drift, high-frequency noise, and/or powerline noise, the EEG data is first bandpass filtered using the cut-off frequencies 0.5 Hz and 40 Hz. After this, the EEG data is epoched into 4-second windows with a 50% overlap. This data is then transferred to the model pipeline discussed below.
+The raw EEG data may contain different kinds of noise e.g., drift, high-frequency noise, and/or powerline noise. Hence, the data needs to be filtered. We employed a classical filtering technique, where the EEG data is bandpass filtered using the cut-off frequencies 0.5 Hz and 40 Hz. 
+
+Working with real-time data requires the data to be split up into windows. Therefore, after the bandpass filtering, the EEG data is epoched into 4-second windows with a 50% overlap. The clean, preprocessed data is then transferred to the model pipeline discussed below.
 
 ## Machine Learning Decoder
 
