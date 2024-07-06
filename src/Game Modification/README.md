@@ -18,29 +18,33 @@ In the end, we chose 'The Witcher 3', which satisfies the three points of consid
 The playable character Geralt can execute 'signs' as magical action and so the game also suits the extra requirement. Moreover, 'The Witcher 3' is a well-known, highly awarded game with lots of online support if anyone would need it.
 
 ## Virtual keyboard to control the game
-To execute in-game actions, virtual keyboard presses are used. This is done in Python using the [keyboard package](https://pypi.org/project/keyboard/). It features hotkey support (e.g., Ctrl+V) and "maps keys as they actually are in your layout, with full internationalization support". This is important to support different keyboard layouts. As Neurotech Leuven is located in Belgium, we support AZERTY keyboards next to the internationally accepted QWERTY. An alternative to this Python package is [pynput](https://pypi.org/project/pynput/), but they have no clear features mentioned so the keyboard package is favored.
+To execute in-game actions, virtual keyboard presses are used. This is done in Python using the [keyboard package](https://pypi.org/project/keyboard/). Amongst its mentioned features are several necessary for this project: it has hotkey support (e.g., Ctrl+V) and "maps keys as they actually are in your layout, with full internationalization support". This is important to support different keyboard layouts. As Neurotech Leuven is located in Belgium, we support AZERTY keyboards next to the internationally accepted QWERTY.
 
 There are two points of attention:
-1. __Focus__:The game tab must be in focus as to receive the keyboard presses.
+1. __Focus__: The game tab must be in focus as to receive the keyboard presses.
 2. __Timing__: A key must be held down long enough relative to the frame rate. 
     - For example, with a frame rate of 50fps, the key needs to be pressed at least 1/50 = 0.02 seconds. 
     - In our case we chose a minimum frame rate of 30fps, as it is widely considered to be the minimum for an enjoyable gaming experience.
 
 ## From classification to execution
 Each classification in both pipelines is associated with an action in the game. For example, if the imagined movement pipeline classifies a left movement then Geralt will cast a spell. The below table gives a complete overview of the classifications and their in-game action, assuming a QWERTY keyboard.
-| Data processing pipeline | Decision | In-game action  | Control |
-|--------------------------|----------|-----------------|---------|
-| Imaginary Movement       | left     | Cast a spell    | Q       |
-| Imaginary Movement       | right    | Call your horse | X       |
-| Emotions                 | neutral  | Change weather to some clouds     | weatherCommand(Mid_Clouds)        |
-| Emotions                 | happy    | Change weather to shining sun     | weatherCommand(Clear)         |
-| Emotions                 | sad      | Change weather to rain            | weatherCommand(Storm)         |
-| Emotions                 | fear     | Change weather to snow            | weatherCommand(Snow)        |
+| Data processing pipeline | Decision | In-game action                  | Type    | Control |
+|--------------------------|----------|---------------------------------|---------|---------|
+| Imaginary Movement       | left     | Cast a spell                    | Simple  | Q       |
+| Imaginary Movement       | right    | Call your horse                 | Simple  | X       |
+| Emotions                 | neutral  | Change weather to some clouds   | Complex | weatherCommand(Mid_Clouds)  |
+| Emotions                 | happy    | Change weather to shining sun   | Complex | weatherCommand(Clear)       |
+| Emotions                 | sad      | Change weather to rain          | Complex | weatherCommand(Storm)       |
+| Emotions                 | fear     | Change weather to snow          | Complex | weatherCommand(Snow)        |
 
-Actions, such as casting a spell and calling your horse, are associated with key presses in the game, Q & X respectively. To change the weather a bit more work is required. Here, a command must be entered in the debug console. Rather than typing out everything one-by-one, the command is copied in the clipboard and later pasted in the debug console. The flow of execution shown below gives an idea how this happens for when a neutral emotion decision is made. 
+We differentiate between two types of actions. 
+- Simple actions, associated with a single key press in the game. For this project these are casting a spell and calling your horse. 
+- Complex actions, where a command must be entered in the debug console. This is necessary to change the weather. Rather than typing out everything letter by letter, the command is copied in the clipboard and later pasted in the debug console. The flow of execution shown below gives an idea how this happens for when a neutral emotion decision is made. 
 
-![](../../docs/WeatherCommand.svg)
+![](../../images/WeatherCommand.svg)
 
 ## Conclusion
 
-The Witcher 3 is a game well suited to this project. Using virtual keyboard presses we can execute any command and with the in-built debug console of the game, even the game environment may easily be adapted.
+The Witcher 3 is a game perfectly suited to the needs of this project. It's magic system provides a perfect link with the 'brain commands'. With the in-built debug console, the game environment can easily be changed to our needs, something unattainable for almost every other game out there. Using virtual keyboard presses we can execute any action with ease and without delay. Below you can find a showcase of this, where only the camera panning is done manually and all other actions are executed by the code of this part of the project.
+
+![demo](../../images/ModdingDemo.gif)
