@@ -1,6 +1,9 @@
 # Emotions Classification: A Machine Learning Approach
 
-The emotion pipeline aims to recognize 4 emotions — neutral, happy, sad, and fear — based on real-time EEG (electroencephalography) signals of the user playing 'The Witcher 3'.
+The emotion pipeline aims to recognize 4 emotions — neutral, happy, sad, and fear — based on real-time EEG (electroencephalography) signals of the user playing 'The Witcher 3'. The emotions are translated in the game as wheater changes. E.g. when a sad/fear emotion is detected, a storm will arise.
+
+![GIF_storm](https://github.com/NeuroTech-Leuven/TheMindWitcher/assets/141845184/1e4cb4d7-b21d-40fd-9eef-b0644b83a800)
+
 
 In what follows, the different steps in the emotion pipeline are explained:
 - To classify the emotions of our users we train a machine learning algorithm.
