@@ -12,7 +12,14 @@ The public dataset that was used to pre-train our models is the [PhysioNet datas
 As the raw EEG data may contain drift, high frequency noise and/or powerline noise, the EEG data is first band-pass filtered using the cut-off frequencies 0.5 Hz and 40 Hz. Higher frequency information removal from the signal is no issue here, as we're mainly interested in the 8-30 Hz frequency range where signals from the motor cortex are found. After this, the EEG data is rereferenced using common average rereferencing, as this is considered to be beneficial for EEG classification tasks in general. In a last step, the data is epoched into 2 second windows with a given label. This data is then passed on to any of our model pipelines discussed below.
 
 ## Model implementations
-In order to achieve the imagined movement (IM) detection and classification goal, different models were trained using a public dataset. Once pre-trained, the models can then be finetuned for new hardware. In total, two pipelines are foreseen for the IM classification task; a machine learning pipeline and a deep learning pipeline. These models will be further discussed below.
+In order to achieve the imagined movement (IM) detection and classification goal, different models were trained using a public dataset. Once pre-trained, the models can then be finetuned for new hardware. In total, two pipelines are foreseen for the IM classification task; a machine learning pipeline and a deep learning pipeline. A first overview of these models can be found below, although the models themselves are discussed more extensively later on.
+
+|**Model**|Machine Learning|Deep Learning|
+|-|-|-|
+|**Description**| Consists of four major steps: <br>  1.    Preprocessing & Epoching <br>     2. CSP filter (individual calibration) <br>     3. Time & frequency domain features <br>     4. Gradient Boosted classifier (trained on PhysioNet database) | Utilizes a transformer model (ComfyNet) with three modules: <br>     1. PatchEmbedding <br>     2. TransformerEncoder <br>     3. ClassificationHead <br> |
+|**Advantages**| * Higher classification performance because of subject-specific calibration | * Subject-independent <br> * Requires less preprocessing <br> |
+|**Disadvantages**| * Requires calibration for each subject <br> | * Slightly lower performance compared to machine learning when calibrated for individual subjects |
+|**Results**| 84% F1 score with 64 channels <br> 68% F1 score with 8 channels | 80% F1 score with 64 channels <br> 62% F1 score with 8 channels |
 
 ## Decoder 1: Machine learning
 As illustrated in the figure below, the machine learning pipeline consists out of 3 major steps:
