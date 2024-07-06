@@ -18,7 +18,7 @@ For a full overview of the project the following diagram may be of use:
 ![Overview of how the MindWitcher project is built up](images/Overview.svg)
 
 #### EEG data acquisition
-The brain signals of interest in this project are your emotions and (imagined) movement by your left and right hand. The brain signals are measured using the AntNeuro headset (8 channel eego). This headset is easy to use and provides a good electrode placement for our application. Some electrolyte gel needs to be applied to the electrodes for better signal quality.
+The brain signals of interest in this project are your emotions and (imagined) movement by your left and right hand. The brain signals are measured using the AntNeuro headset (8 channel eego). This headset is easy to use and provides a good electrode placement for our application. Using this headset requires electrolyte gel – without it, the conductivity and accompanied signal quality are much worse.
 
 <img src="images/headset.jpeg" width="600">
 
@@ -78,6 +78,7 @@ To properly use the AntNeuro headset, the right drivers need to be installed. Fi
 Now all that's left to do is run the `main.py` file. It opens the OpenViBE Acquisition Server and gets it running. Once that's done, it starts running the model pipelines so just open the game and start playing!
 
 ## Limitations and future plans
+While the current state of the project gives satisfactory results, it is not without limitations. Future research plans aim to address the following points specifically.
 - Despite the impressive potential of our EEG-steered game, the current models face performance challenges primarily due to discrepancies between the training data and the real-time data obtained from our headset (transferring from a 64 channel to 8 channel headset). To address this, our future endeavors will focus on extensive data collection using our own headset, enabling us to train the models with data that closely mirrors actual usage conditions.
 - In the initial stages, detecting real movements is more feasible than detecting imagined movements. However, by leveraging transfer learning techniques, we plan to progressively transition to imagined movement detection, allowing us to utilize the knowledge gained from real movement data to improve the model's ability to recognize and interpret imagined movements. 
 

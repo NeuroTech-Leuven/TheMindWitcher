@@ -5,7 +5,7 @@ The source directory (/src) is organized into several folders, each related to s
 
 Folder: `Emotions`. 
 Contains all files pertaining to the emotions pipeline. These files and directories are:
-- A Python file which handles the link between data acquisition in OpeniIBE and modifying the game.
+- A Python file which handles the link between data acquisition in OpenVIBE and modifying the game.
 - The notebook which details the chosen model, this model is trained and the determined parameters are saved.
 - The directory `models`, in which model parameters are stored.
 
