@@ -47,4 +47,4 @@ We differentiate between two types of actions.
 
 The Witcher 3 is a game perfectly suited to the needs of this project. It's magic system provides a perfect link with the 'brain commands'. With the in-built debug console, the game environment can easily be changed to our needs, something unattainable for almost every other game out there. Using virtual keyboard presses we can execute any action with ease and without delay. Below you can find a showcase of this, where only the camera panning is done manually and all other actions are executed by the code of this part of the project.
 
-![demo](../../images/ModdingDemo.gif)
+![demo](../../images/ModdingDemo.mp4)
