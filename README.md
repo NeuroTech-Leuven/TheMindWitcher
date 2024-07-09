@@ -41,7 +41,7 @@ Once the classification is decided, the right action needs to be executed in the
 1. **Simple actions**: these require just a single key press.
 2. **Complex actions**: now we need to use the built-in debug console to change the game environment.
 
-More details on the game modification are available [here](<src/Modding/README.md>).
+More details on the game modification are available [here](<src/Game Modification/README.md>).
 
 ## Repository Structure
 The repository is organized into several folders:
