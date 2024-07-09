@@ -3,7 +3,7 @@
 ## Introduction
 Welcome to the repository for the Mindwitcher project, developed by the Team Neurotech Leuven. This project is our submission for the Neurotech X competition 2024, where we present an innovative modification to the popular game *The Witcher 3*. The Mindwitcher project uses EEG (electroencephalogram) signals to control certain actions within the game, creating a unique gaming experience that merges neuroscience and technology.
 
-_Here comes the video_
+[![NTX Leuven 2024 video](images/ThumbnailProjectVideo.png)](https://youtu.be/djNqa87wX-M)
 
 ## Project Overview
 From beginning to end, the Mindwitcher project focuses on utilizing EEG signals to control actions in *The Witcher 3* game. Specifically, we have implemented two types of functionalities:
